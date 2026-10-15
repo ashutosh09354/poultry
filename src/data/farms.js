@@ -1,0 +1,45 @@
+const mk = (slug, name, category, farmType, state, city, area, products, summary, description) => ({
+  slug, name, category, farmType, state, city, area, products, summary, description,
+});
+
+const farms = [
+  mk("deccan-broiler-works", "Deccan Broiler Works", "broiler", "Commercial", "Telangana", "Hyderabad", "Outskirts, Medchal side",
+    ["broiler-chicken"], "Broiler grower supplying live birds to local retailers.",
+    "A commercial broiler operation describing its placement cycle, how birds are sold, and the area it serves."),
+  mk("godavari-layer-farm", "Godavari Layer Farm", "layer", "Commercial", "Andhra Pradesh", "Rajahmundry", "Godavari belt",
+    ["eggs", "poultry-manure"], "Table egg supplier with manure available to nearby crop growers.",
+    "A layer farm profile with egg grading, packing format and supply frequency for bulk buyers."),
+  mk("namakkal-egg-collective", "Namakkal Egg Collective", "layer", "Commercial", "Tamil Nadu", "Namakkal", "Namakkal district",
+    ["eggs"], "Egg-focused layer unit in a well-known egg-producing district.",
+    "A layer farm in a district known for egg production, serving wholesale buyers."),
+  mk("malwa-country-birds", "Malwa Country Birds", "country-chicken", "Family-run", "Punjab", "Bathinda", "Village road, Bathinda",
+    ["country-chicken"], "Family-run farm raising native-type birds.",
+    "A family-run farm describing the breed or cross it raises and the age at which birds are sold."),
+  mk("sahyadri-hatchery", "Sahyadri Hatchery", "hatchery", "Commercial", "Maharashtra", "Pune", "Pune district",
+    ["day-old-chicks", "hatching-eggs"], "Hatchery supplying day-old chicks to growers in the region.",
+    "A hatchery listing with details about the breeds supplied, minimum order size and delivery area."),
+  mk("terai-breeder-farm", "Terai Breeder Farm", "breeding", "Commercial", "Uttar Pradesh", "Lucknow", "Outskirts of Lucknow",
+    ["hatching-eggs"], "Breeder flock supplying hatching eggs to hatcheries.",
+    "A breeding farm serving hatcheries and experienced growers through trade enquiries."),
+  mk("malnad-broiler-farm", "Malnad Broiler Farm", "broiler", "Small-scale", "Karnataka", "Mysuru", "Mysuru district",
+    ["broiler-chicken", "poultry-manure"], "Small broiler unit selling to nearby shops and households.",
+    "A small-scale broiler farm serving local buyers."),
+  mk("kathiawar-country-chicken", "Kathiawar Country Chicken", "country-chicken", "Small-scale", "Gujarat", "Rajkot", "Rajkot district",
+    ["country-chicken", "eggs"], "Native-type birds and a small supply of eggs.",
+    "A small farm that supplies both birds and eggs."),
+  mk("aravali-layer-unit", "Aravali Layer Unit", "layer", "Small-scale", "Rajasthan", "Jaipur", "Outskirts of Jaipur",
+    ["eggs"], "Small layer unit supplying eggs to local retailers.",
+    "A small layer unit supplying local retailers."),
+  mk("kaveri-day-old-chicks", "Kaveri Day-Old Chicks", "hatchery", "Commercial", "Tamil Nadu", "Coimbatore", "Coimbatore district",
+    ["day-old-chicks"], "Hatchery for growers in the western districts.",
+    "A hatchery serving the Coimbatore region. Buyers can enquire about breeds and availability."),
+  mk("doaba-broiler-farm", "Doaba Broiler Farm", "broiler", "Commercial", "Punjab", "Ludhiana", "Ludhiana district",
+    ["broiler-chicken", "poultry-manure"], "Broiler producer with manure available for field use.",
+    "A commercial broiler farm in Punjab with poultry manure available for field use."),
+  mk("vidarbha-country-fowl", "Vidarbha Country Fowl", "country-chicken", "Family-run", "Maharashtra", "Nagpur", "Nagpur district",
+    ["country-chicken"], "Family-run native chicken farm in eastern Maharashtra.",
+    "A family-run farm with native chickens in eastern Maharashtra."),
+];
+
+export const farmTypes = ["Commercial", "Small-scale", "Family-run"];
+export default farms;

@@ -1,0 +1,193 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Baby, BookOpen, Bird, ChevronRight, Circle, CircleAlert, CircleCheck, CircleDot, Dna, Drumstick, Egg, Handshake, Info, Megaphone, Search, Sprout, Warehouse } from "lucide-react";
+
+// Only icons referenced by name in the data files are bundled. Add new ones here.
+const ICONS = { Baby, BookOpen, Bird, Circle, CircleAlert, CircleCheck, CircleDot, Dna, Drumstick, Egg, Handshake, Info, Megaphone, Search, Sprout, Warehouse };
+
+export function Icon({ name, size = 20, className = "", ...rest }) {
+  const C = ICONS[name] || Circle;
+  return <C size={size} className={className} aria-hidden="true" {...rest} />;
+}
+
+export function Container({ className = "", children, as: Tag = "div" }) {
+  return <Tag className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</Tag>;
+}
+
+const tones = {
+  ivory: "bg-ivory",
+  white: "bg-white",
+  sage: "bg-sage-100",
+  forest: "bg-forest-900 text-sage-100",
+};
+export function Section({ tone = "ivory", className = "", children, id, labelledBy }) {
+  return (
+    <section id={id} aria-labelledby={labelledBy} className={`${tones[tone]} py-12 sm:py-16 ${className}`}>
+      <Container>{children}</Container>
+    </section>
+  );
+}
+
+export function SectionHeading({ id, title, children, action, light = false }) {
+  return (
+    <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+      <div className="max-w-2xl">
+        <h2 id={id} className={`text-3xl sm:text-4xl font-bold ${light ? "!text-white" : ""}`}>{title}</h2>
+        {children && <p className={`mt-3 text-base sm:text-lg ${light ? "text-sage-200" : "text-ink-soft"}`}>{children}</p>}
+      </div>
+      {action}
+    </div>
+  );
+}
+
+const btn = {
+  primary: "bg-forest-800 text-white hover:bg-forest-900 border-forest-800",
+  cta: "border-[#f4b942] bg-[#f4b942] text-forest-950 shadow-sm hover:border-[#e3a52e] hover:bg-[#e3a52e]",
+  outline: "bg-transparent text-forest-800 border-forest-800 hover:bg-forest-800 hover:text-white",
+  light: "bg-white text-forest-900 border-white hover:bg-sage-100",
+  ghostLight: "bg-transparent text-white border-white/70 hover:bg-white/10",
+};
+const sizes = { md: "px-5 py-2.5 text-[0.95rem]", sm: "px-3.5 py-2 text-sm", lg: "px-6 py-3 text-base" };
+
+export function Button({ to, href, variant = "primary", size = "md", className = "", children, ...rest }) {
+  const cls = `inline-flex items-center justify-center gap-2 rounded-[4px] border font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${btn[variant]} ${sizes[size]} ${className}`;
+  if (to) return <Link to={to} className={cls} {...rest}>{children}</Link>;
+  if (href) return <a href={href} className={cls} {...rest}>{children}</a>;
+  return <button type="button" className={cls} {...rest}>{children}</button>;
+}
+
+const badgeTone = {
+  sage: "bg-sage-100 text-forest-800 border-sage-200",
+  forest: "bg-forest-800 text-white border-forest-800",
+  ochre: "bg-ochre-100 text-ochre-700 border-[#ead9ae]",
+  outline: "bg-white text-ink-soft border-line",
+};
+export function Badge({ tone = "sage", children, className = "" }) {
+  return <span className={`inline-flex items-center gap-1 rounded-[3px] border px-2 py-0.5 text-xs font-semibold ${badgeTone[tone]} ${className}`}>{children}</span>;
+}
+
+export function Breadcrumbs({ items, light = false }) {
+  return (
+    <nav aria-label="Breadcrumb" className="mb-4">
+      <ol className={`flex flex-wrap items-center gap-1.5 text-sm ${light ? "text-sage-200" : "text-ink-soft"}`}>
+        {items.map((it, i) => (
+          <li key={it.label} className="flex items-center gap-1.5">
+            {i > 0 && <ChevronRight size={14} aria-hidden="true" />}
+            {it.to && i < items.length - 1 ? (
+              <Link to={it.to} className="underline-offset-2 hover:underline">{it.label}</Link>
+            ) : (
+              <span aria-current={i === items.length - 1 ? "page" : undefined} className="font-medium">{it.label}</span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+export function PageHeader({ title, intro, crumbs, children }) {
+  return (
+    <header className="bg-forest-900 text-white">
+      <Container className="py-10 sm:py-14">
+        {crumbs && <Breadcrumbs items={crumbs} light />}
+        <h1 className="max-w-3xl text-3xl font-bold !text-white sm:text-5xl">{title}</h1>
+        {intro && <p className="mt-4 max-w-2xl text-base text-sage-200 sm:text-lg">{intro}</p>}
+        {children}
+      </Container>
+    </header>
+  );
+}
+
+const noticeStyle = {
+  info: ["bg-sage-100 border-sage-300 text-forest-900", "Info"],
+  success: ["bg-[#e3f1e5] border-[#9cc7a3] text-forest-900", "CircleCheck"],
+  error: ["bg-[#f8e4e0] border-[#e0a79e] text-[#6b2217]", "CircleAlert"],
+};
+export function Notice({ tone = "info", title, children, className = "" }) {
+  const [cls, icon] = noticeStyle[tone];
+  return (
+    <div role={tone === "error" ? "alert" : "status"} className={`flex gap-3 rounded-[4px] border p-4 text-sm ${cls} ${className}`}>
+      <Icon name={icon === "Info" ? "Info" : icon} size={20} className="mt-0.5 shrink-0" />
+      <div>
+        {title && <p className="font-semibold">{title}</p>}
+        <div className={title ? "mt-1" : ""}>{children}</div>
+      </div>
+    </div>
+  );
+}
+
+/* Forms */
+const inputCls = (err) =>
+  `block w-full rounded-[4px] border bg-white px-3 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-soft/60 ${err ? "border-danger" : "border-[#b8c4b5]"}`;
+
+export function Field({ id, label, error, hint, required, plain, children }) {
+  return (
+    <div>
+      <label htmlFor={id} className="mb-1.5 block text-sm font-semibold text-forest-900">
+        {label}{!plain && required && <span className="text-danger" aria-hidden="true"> *</span>}
+        {!plain && !required && <span className="ml-1 font-normal text-ink-soft">(optional)</span>}
+      </label>
+      {children}
+      {hint && !error && <p id={`${id}-hint`} className="mt-1 text-xs text-ink-soft">{hint}</p>}
+      {error && <p id={`${id}-err`} className="mt-1 text-sm font-medium text-danger">{error}</p>}
+    </div>
+  );
+}
+const aria = (id, error, hint) => ({
+  id, name: id, "aria-invalid": error ? true : undefined,
+  "aria-describedby": error ? `${id}-err` : hint ? `${id}-hint` : undefined,
+});
+
+export function TextInput({ id, label, error, hint, required, ...rest }) {
+  return (
+    <Field id={id} label={label} error={error} hint={hint} required={required}>
+      <input className={inputCls(error)} {...aria(id, error, hint)} {...rest} />
+    </Field>
+  );
+}
+export function TextArea({ id, label, error, hint, required, rows = 5, ...rest }) {
+  return (
+    <Field id={id} label={label} error={error} hint={hint} required={required}>
+      <textarea rows={rows} className={inputCls(error)} {...aria(id, error, hint)} {...rest} />
+    </Field>
+  );
+}
+export function SelectInput({ id, label, error, hint, required, plain, options, placeholder, ...rest }) {
+  return (
+    <Field id={id} label={label} error={error} hint={hint} required={required} plain={plain}>
+      <select className={inputCls(error)} {...aria(id, error, hint)} {...rest}>
+        {placeholder !== undefined && <option value="">{placeholder}</option>}
+        {options.map((o) => {
+          const v = typeof o === "string" ? o : o.value;
+          const l = typeof o === "string" ? o : o.label;
+          return <option key={v} value={v}>{l}</option>;
+        })}
+      </select>
+    </Field>
+  );
+}
+
+/* Image with fixed aspect ratio (prevents layout shift) and a neutral fallback */
+export function Img({ src, alt, ratio = "aspect-[4/3]", className = "", icon = "Bird", priority = false, label = "Photo to be added" }) {
+  const [failed, setFailed] = useState(false);
+  const showFallback = !src || failed;
+  return (
+    <div className={`relative overflow-hidden bg-sage-200 ${ratio} ${className}`}>
+      {showFallback ? (
+        <div role="img" aria-label={alt} className="flex h-full w-full flex-col items-center justify-center gap-2 bg-sage-100 text-sage-500">
+          <Icon name={icon} size={36} />
+          <span className="text-xs font-medium">{label}</span>
+        </div>
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          onError={() => setFailed(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
+    </div>
+  );
+}
