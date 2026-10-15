@@ -3,9 +3,9 @@
 const site = {
   name: "Poultry",
   tagline: "A poultry farm directory for India",
-  email: "info@greenharvestfarms.com",
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
+  email: "info@poultry.com",
+  phone: "+91 xxxxxxxxxx",
+  phoneHref: "tel:+91xxxxxxxxxxx",
   // Set to true once the details above are confirmed; this controls the "unconfirmed" note on the Contact page.
   contactConfirmed: false,
 };
