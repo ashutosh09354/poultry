@@ -4,10 +4,10 @@ import Accordion from "../components/ui/Accordion";
 import { Button, Container, PageHeader } from "../components/ui/ui";
 
 export default function Faq() {
-  useSeo("Frequently asked questions", "Answers for buyers and poultry farmers about listings, verification and how GreenHarvest works.");
+  useSeo("Frequently asked questions", "Answers for buyers and poultry farmers about listings, verification and how Poultry works.");
   return (
     <>
-      <PageHeader title="Frequently asked questions" intro="Straight answers about what GreenHarvest does today." crumbs={[{ label: "Home", to: "/" }, { label: "Resources", to: "/resources" }, { label: "FAQ" }]} />
+      <PageHeader title="Frequently asked questions" intro="Straight answers about what Poultry does today." crumbs={[{ label: "Home", to: "/" }, { label: "Resources", to: "/resources" }, { label: "FAQ" }]} />
       <Container className="py-10 sm:py-14">
         <div className="grid gap-10 lg:grid-cols-[14rem_1fr]">
           <nav aria-label="FAQ sections" className="lg:sticky lg:top-24 lg:self-start">

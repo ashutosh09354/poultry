@@ -5,7 +5,7 @@ import useSeo from "../hooks/useSeo";
 import farms from "../data/farms";
 import categories from "../data/categories";
 import products from "../data/products";
-import { photosFor } from "../data/images";
+import { cardPhotoFor } from "../data/images";
 import { Badge, Button, Container, Img, Notice, PageHeader, Section, Icon } from "../components/ui/ui";
 import FarmCard from "../components/FarmCard";
 import NotFound from "./NotFound";
@@ -39,6 +39,8 @@ export default function FarmDetail() {
   const cat = categories.find((c) => c.id === farm.category);
   const farmProducts = farm.products.map((id) => products.find((p) => p.id === id));
   const related = farms.filter((f) => f.slug !== farm.slug && (f.category === farm.category || f.state === farm.state)).slice(0, 3);
+  const cardPhoto = cardPhotoFor(farm);
+  const galleryPhotos = cardPhoto ? [{ src: cardPhoto, thumb: cardPhoto }] : [];
 
   return (
     <>
@@ -51,7 +53,7 @@ export default function FarmDetail() {
 
       <Container className="grid gap-10 py-10 lg:grid-cols-[1.5fr_1fr]">
         <div className="space-y-10">
-          <Gallery photos={photosFor(farm.category)} name={farm.name} icon={cat.icon} />
+          <Gallery photos={galleryPhotos} name={farm.name} icon={cat.icon} />
 
           <section aria-labelledby="ov">
             <h2 id="ov" className="text-2xl font-bold">Overview</h2>

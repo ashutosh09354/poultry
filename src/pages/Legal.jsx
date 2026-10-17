@@ -5,10 +5,10 @@ import { Container, Notice, PageHeader } from "../components/ui/ui";
 const pages = {
   privacy: {
     title: "Privacy policy",
-    description: "How GreenHarvest handles information when you use the website.",
-    intro: "This policy explains how GreenHarvest handles information collected through the website.",
+    description: "How Poultry handles information when you use the website.",
+    intro: "This policy explains how Poultry handles information collected through the website.",
     sections: [
-      ["What the site collects", ["GreenHarvest may collect the information you provide through contact, listing and report forms to operate and improve the directory.", "Search terms and filters may be kept in the page address so that links and search results work correctly."]],
+      ["What the site collects", ["Poultry may collect the information you provide through contact, listing and report forms to operate and improve the directory.", "Search terms and filters may be kept in the page address so that links and search results work correctly."]],
       ["Cookies and tracking", ["The site itself does not set cookies and does not include analytics or advertising tools."]],
       ["Third-party content", ["Images may be loaded from third-party services. Those services may receive standard request information such as your IP address and browser type."]],
       ["Files you choose in the listing form", ["Only upload photos that you have the right to share."]],
@@ -17,10 +17,10 @@ const pages = {
   },
   terms: {
     title: "Terms of use",
-    description: "Terms for using the GreenHarvest website.",
+    description: "Terms for using the Poultry website.",
     intro: "By using this website you agree to these terms.",
     sections: [
-      ["About the site", ["GreenHarvest is a poultry farm directory intended to help buyers find farms."]],
+      ["About the site", ["Poultry is a poultry farm directory intended to help buyers find farms."]],
       ["No transactions", ["The site does not sell products, process payments or arrange delivery. Any dealings with a farm are solely between you and that farm."]],
       ["Accuracy of information", ["Listings are not verified. Do not rely on the site to confirm that a farm exists, holds any licence or certification, or can supply a product. Check details with the farm directly."]],
       ["Educational content", ["Guides in the Knowledge Hub are general information. They are not veterinary, legal or food-safety advice."]],
@@ -31,7 +31,7 @@ const pages = {
   },
   guidelines: {
     title: "Listing guidelines",
-    description: "Standards for submitting accurate poultry farm listings to GreenHarvest.",
+    description: "Standards for submitting accurate poultry farm listings to Poultry.",
     intro: "A listing is only useful if buyers can trust it. These are the standards we expect of every listing.",
     sections: [
       ["Be accurate", ["State only facts about your own business that you can support. Keep information up to date."]],

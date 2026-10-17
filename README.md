@@ -1,4 +1,4 @@
-# GreenHarvest: poultry farm directory (front-end demo)
+# Poultry: poultry farm directory (front-end demo)
 
 React 19 + Vite + Tailwind CSS 4 + React Router. No backend; all data is local and clearly labelled as sample data.
 

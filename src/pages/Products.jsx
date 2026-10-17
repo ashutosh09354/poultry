@@ -7,10 +7,10 @@ export default function Products() {
   useSeo("Poultry products", "Learn about eggs, broiler chicken, country chicken, day-old chicks and other products poultry farms list, and what to ask a farm.");
   return (
     <>
-      <PageHeader title="Poultry products" intro="The products farms can list on GreenHarvest, what each one means and what to ask a farm before you buy." crumbs={[{ label: "Home", to: "/" }, { label: "Products" }]} />
+      <PageHeader title="Poultry products" intro="The products farms can list on Poultry, what each one means and what to ask a farm before you buy." crumbs={[{ label: "Home", to: "/" }, { label: "Products" }]} />
       <Container className="py-10 sm:py-14">
         <Notice tone="info" title="Discovery only" className="mb-10">
-          GreenHarvest does not sell products, hold stock or take payments. There is no cart or checkout. Availability and prices are set by each farm, so use the enquiry link to ask.
+          Poultry does not sell products, hold stock or take payments. There is no cart or checkout. Availability and prices are set by each farm, so use the enquiry link to ask.
         </Notice>
         <ul className="grid gap-6 md:grid-cols-2">
           {products.map((p) => (

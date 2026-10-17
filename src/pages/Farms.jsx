@@ -78,7 +78,7 @@ export default function Farms() {
     <>
       <PageHeader title="Explore poultry farms" intro="Search the directory and narrow results by location, category, farm type and product." crumbs={[{ label: "Home", to: "/" }, { label: "Explore Farms" }]} />
       <Container className="py-8 sm:py-10">
-        <div className="grid gap-8 lg:grid-cols-[17rem_1fr]">
+        <div className="grid gap-6 lg:grid-cols-[17rem_1fr]">
           <aside aria-label="Filters" className="lg:sticky lg:top-24 lg:self-start">
             <button type="button" className="flex w-full items-center justify-between rounded-[4px] border border-line bg-white px-4 py-3 font-semibold text-forest-900 lg:hidden" aria-expanded={showFilters} aria-controls="filters-panel" onClick={() => setShowFilters(!showFilters)}>
               <span className="flex items-center gap-2"><SlidersHorizontal size={18} aria-hidden="true" />Filters{activeCount ? ` (${activeCount})` : ""}</span>
@@ -108,7 +108,7 @@ export default function Farms() {
             </p>
 
             {visible.length ? (
-              <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {visible.map((f) => <li key={f.slug}><FarmCard farm={f} /></li>)}
               </ul>
             ) : (

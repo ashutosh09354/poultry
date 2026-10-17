@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import categories from "../data/categories";
 import products from "../data/products";
-import { photosFor } from "../data/images";
+import { cardPhotoFor } from "../data/images";
 import { Badge, Img } from "./ui/ui";
 
 export default function FarmCard({ farm }) {
   const cat = categories.find((c) => c.id === farm.category);
-  const photo = photosFor(farm.category)[0];
+  const photo = cardPhotoFor(farm);
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[6px] border border-line bg-white focus-within:ring-2 focus-within:ring-ochre-500">
-      <Img src={photo?.thumb} alt="" ratio="aspect-[16/10]" icon={cat?.icon} />
+      <Img src={photo} alt={`Representative view of ${farm.name}`} ratio="aspect-[16/10]" icon={cat?.icon} />
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-2 flex flex-wrap gap-1.5">
           <Badge tone="forest">{cat?.name}</Badge>
