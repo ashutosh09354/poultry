@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Filter, ClipboardList, Mail, Eye, Users } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Search, Filter, ClipboardList, Mail, Eye, Users } from "lucide-react";
 import useSeo from "../hooks/useSeo";
 import farms from "../data/farms";
 import categories from "../data/categories";
@@ -140,22 +140,32 @@ export default function Home() {
       </Section>
 
       {/* Farmer onboarding */}
-      <section className="bg-forest-900 text-white" aria-labelledby="farmer-title">
-        <Container className="grid items-center gap-6 py-9 lg:grid-cols-2">
-          <div>
-            <h2 id="farmer-title" className="text-3xl font-bold !text-white sm:text-4xl">Run a poultry business? Prepare your listing.</h2>
-            <p className="mt-3 max-w-lg text-sage-200">You will need a few basic details. Share only what is accurate; the listing guidelines explain what makes a good profile.</p>
-            <ul className="mt-4 grid gap-2 text-sage-100 sm:grid-cols-2">
+      <section className="relative isolate overflow-hidden bg-forest-900 text-white" aria-labelledby="farmer-title">
+        <div aria-hidden="true" className="absolute -left-24 bottom-[-7rem] -z-10 h-80 w-80 rounded-full border-[38px] border-white/5" />
+        <div aria-hidden="true" className="absolute right-[36%] top-0 -z-10 h-24 w-px bg-white/15" />
+        <Container className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="max-w-xl">
+            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-[#f4b942]"><ClipboardList size={17} aria-hidden="true" />For poultry businesses</p>
+            <h2 id="farmer-title" className="mt-4 text-4xl font-bold !text-white sm:text-5xl">Give your farm a place to be found.</h2>
+            <p className="mt-5 max-w-lg text-base leading-7 text-sage-200 sm:text-lg">Prepare a clear listing that helps the right buyers understand what you supply and how to get in touch.</p>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {["Farm name and location", "Farm category", "Products you supply", "Contact details", "Photos (optional)"].map((i) => (
-                <li key={i} className="flex items-center gap-2"><ClipboardList size={16} aria-hidden="true" className="text-ochre-500" />{i}</li>
+                <li key={i} className="flex items-center gap-2.5 rounded-[4px] border border-white/10 bg-white/5 px-3 py-2.5 text-sm font-medium text-sage-100"><CheckCircle2 size={17} aria-hidden="true" className="shrink-0 text-[#f4b942]" />{i}</li>
               ))}
             </ul>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <Button to="/list-your-farm" variant="cta">List your farm</Button>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button to="/list-your-farm" variant="cta">List your farm <ArrowUpRight size={18} aria-hidden="true" /></Button>
               <Button to="/listing-guidelines" variant="ghostLight">Read the guidelines</Button>
             </div>
           </div>
-          <Img src={sectionImages.onboarding} alt="Chickens in a poultry house" ratio="aspect-[4/3]" className="rounded-[6px]" />
+          <div className="relative mx-auto w-full max-w-xl lg:mx-0">
+            <div aria-hidden="true" className="absolute -inset-3 rounded-[10px] border border-white/15" />
+            <Img src={sectionImages.onboarding} alt="Free-range chickens at a poultry farm" ratio="aspect-[5/4]" priority className="rounded-[6px] shadow-2xl" />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/95 via-forest-950/50 to-transparent px-5 pb-5 pt-16 sm:px-7 sm:pb-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#f4b942]">Make a clear first impression</p>
+              <p className="mt-1 max-w-sm font-display text-2xl font-bold leading-tight text-white">Your profile starts with the details buyers look for.</p>
+            </div>
+          </div>
         </Container>
       </section>
 

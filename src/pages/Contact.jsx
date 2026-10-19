@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Mail, MessageCircle, Phone, Send, Sprout } from "lucide-react";
 import useSeo from "../hooks/useSeo";
 import site from "../data/site";
 import farms from "../data/farms";
@@ -46,12 +46,27 @@ export default function Contact() {
 
   return (
     <>
-      <PageHeader title="Contact us" intro="Ask a question, make an enquiry about a farm or product, or tell us what could be better." crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]} />
-      <Container className="grid gap-10 py-10 sm:py-14 lg:grid-cols-[1.6fr_1fr]">
-        <div>
+      <PageHeader title="Let's start a conversation" intro="Ask a question, make an enquiry about a farm or product, or share an idea to make Poultry better." crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]}>
+        <div className="mt-7 flex flex-wrap gap-3 text-sm text-sage-100">
+          <span className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1.5"><MessageCircle size={16} />Enquiries welcome</span>
+          <span className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1.5"><Sprout size={16} />For India's poultry community</span>
+        </div>
+      </PageHeader>
+      <main className="relative overflow-hidden bg-sage-50">
+        <div aria-hidden="true" className="absolute -right-24 top-10 h-72 w-72 rounded-full border-[28px] border-sage-200/60" />
+        <Container className="relative grid gap-8 py-10 sm:py-14 lg:grid-cols-[1.55fr_0.9fr] lg:gap-12">
+        <section className="rounded-[6px] border border-line bg-white p-5 shadow-[0_18px_45px_-32px_rgba(18,53,36,0.55)] sm:p-8" aria-labelledby="message-heading">
+          <div className="mb-7 flex items-start gap-4 border-b border-line pb-6">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-100 text-forest-700"><Send size={20} aria-hidden="true" /></span>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-forest-700">Send an enquiry</p>
+              <h2 id="message-heading" className="mt-1 text-2xl font-bold">How can we help?</h2>
+              <p className="mt-1 text-sm text-ink-soft">Tell us a little about what you need and we will direct your message to the right team.</p>
+            </div>
+          </div>
           {done ? (
             <div>
-              <Notice tone="info" title="Thank you for your message">We will get back to you as soon as possible.</Notice>
+              <Notice tone="success" title="Thank you for your message">Your enquiry has been received. We will get back to you as soon as possible.</Notice>
               <Button className="mt-5" variant="outline" onClick={() => { setDone(false); setForm({ ...form, message: "" }); }}>Edit message</Button>
             </div>
           ) : (
@@ -65,20 +80,28 @@ export default function Contact() {
                 <SelectInput id="topic" label="Enquiry category" required value={form.topic} onChange={on("topic")} options={topics} error={errors.topic} />
               </div>
               <TextArea id="message" label="Message" required value={form.message} onChange={on("message")} error={errors.message} />
-              <Button type="submit" size="lg">Send message</Button>
+              <div className="flex flex-wrap items-center gap-4 pt-1">
+                <Button type="submit" size="lg">Send message <ArrowUpRight size={18} aria-hidden="true" /></Button>
+                <span className="text-sm text-ink-soft">Fields marked <span className="font-semibold text-danger">*</span> are required.</span>
+              </div>
             </form>
           )}
-        </div>
+        </section>
 
-        <aside className="h-fit rounded-[6px] border border-line bg-white p-6">
-          <h2 className="text-xl font-bold">Contact details</h2>
-          <ul className="mt-4 space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Mail size={18} aria-hidden="true" className="text-forest-700" /><a href={`mailto:${site.email}`} className="underline">{site.email}</a></li>
-            <li className="flex items-center gap-2"><Phone size={18} aria-hidden="true" className="text-forest-700" /><a href={site.phoneHref} className="underline">{site.phone}</a></li>
+        <aside className="h-fit overflow-hidden rounded-[6px] border border-forest-800 bg-forest-900 text-white shadow-[0_18px_45px_-32px_rgba(18,53,36,0.7)]">
+          <div className="border-b border-white/15 p-6 sm:p-7">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-sage-200">Contact details</p>
+            <h2 className="mt-2 text-3xl font-bold !text-white">Prefer a direct route?</h2>
+            <p className="mt-3 text-sm leading-6 text-sage-200">Choose the channel that works best for you. We welcome questions from farmers, buyers and partners.</p>
+          </div>
+          <ul className="divide-y divide-white/15">
+            <li><a href={`mailto:${site.email}`} className="group flex items-center gap-4 p-6 transition-colors hover:bg-white/10 sm:p-7"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f4b942]"><Mail size={19} aria-hidden="true" /></span><span className="min-w-0"><span className="block text-xs font-semibold uppercase tracking-[0.12em] text-sage-200">Email us</span><span className="mt-1 block break-all font-semibold underline decoration-white/30 underline-offset-4 group-hover:decoration-[#f4b942]">{site.email}</span></span><ArrowUpRight className="ml-auto shrink-0 text-sage-200" size={18} aria-hidden="true" /></a></li>
+            <li><a href={site.phoneHref} className="group flex items-center gap-4 p-6 transition-colors hover:bg-white/10 sm:p-7"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#f4b942]"><Phone size={19} aria-hidden="true" /></span><span><span className="block text-xs font-semibold uppercase tracking-[0.12em] text-sage-200">Call us</span><span className="mt-1 block font-semibold underline decoration-white/30 underline-offset-4 group-hover:decoration-[#f4b942]">{site.phone}</span></span><ArrowUpRight className="ml-auto shrink-0 text-sage-200" size={18} aria-hidden="true" /></a></li>
           </ul>
-          <p className="mt-4 text-sm text-ink-soft">We do not state a response time.</p>
+          <div className="m-5 flex gap-3 border border-white/15 bg-white/5 p-4 text-sm text-sage-100 sm:m-6"><CheckCircle2 size={19} className="shrink-0 text-[#f4b942]" aria-hidden="true" /><p>{site.contactConfirmed ? "Our contact details are confirmed and ready for your enquiry." : "Contact details are being verified. Please use the form for the most reliable way to reach us."}</p></div>
         </aside>
-      </Container>
+        </Container>
+      </main>
     </>
   );
 }

@@ -103,10 +103,6 @@ export default function Farms() {
               </div>
             </div>
 
-            <p className="mb-4 text-sm text-ink-soft" aria-live="polite">
-              {results.length === 0 ? "No farms match" : `Showing ${(current - 1) * PAGE_SIZE + 1}–${(current - 1) * PAGE_SIZE + visible.length} of ${results.length} ${results.length === 1 ? "listing" : "listings"}`}
-            </p>
-
             {visible.length ? (
               <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {visible.map((f) => <li key={f.slug}><FarmCard farm={f} /></li>)}
