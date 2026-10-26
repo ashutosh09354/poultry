@@ -166,10 +166,10 @@ export default function Home() {
         <SectionHeading id="prod-title" title="What farms supply" action={<Button to="/products" variant="outline" size="sm">Product guide</Button>}>
           Eggs, birds, chicks and more.
         </SectionHeading>
-        <ul className="grid gap-px overflow-hidden rounded-[6px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => (
-            <li key={p.id} className="flex items-start gap-3 bg-white p-4">
-              <span className="mt-0.5 text-brand-700"><Icon name={p.icon} size={24} /></span>
+            <li key={p.id} className="group flex items-start gap-4 rounded-2xl border border-mist-200 bg-white p-5 shadow-[0_12px_30px_-18px_rgba(16,42,71,0.4)] transition-all duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_20px_38px_-18px_rgba(16,42,71,0.45)]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB] transition-colors group-hover:bg-[#2563EB] group-hover:text-white"><Icon name={p.icon} size={24} /></span>
               <div>
                 <h3 className="text-lg font-bold">{p.name}</h3>
                 <p className="mt-1 text-sm text-ink-soft">{p.info}</p>

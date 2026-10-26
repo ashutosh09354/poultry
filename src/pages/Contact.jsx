@@ -55,9 +55,9 @@ export default function Contact() {
       <main className="relative overflow-hidden bg-mist-50">
         <div aria-hidden="true" className="absolute -right-24 top-10 h-72 w-72 rounded-full border-[28px] border-mist-200/60" />
         <Container className="relative grid gap-8 py-10 sm:py-14 lg:grid-cols-[1.55fr_0.9fr] lg:gap-12">
-        <section className="rounded-[6px] border border-line bg-white p-5 shadow-[0_18px_45px_-32px_rgba(16,42,71,0.55)] sm:p-8" aria-labelledby="message-heading">
+        <section className="rounded-2xl border border-mist-200 bg-white p-6 shadow-[0_20px_50px_-28px_rgba(16,42,71,0.35)] sm:p-9" aria-labelledby="message-heading">
           <div className="mb-7 flex items-start gap-4 border-b border-line pb-6">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mist-100 text-brand-700"><Send size={20} aria-hidden="true" /></span>
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB]"><Send size={20} aria-hidden="true" /></span>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-700">Send an enquiry</p>
               <h2 id="message-heading" className="mt-1 text-2xl font-bold">How can we help?</h2>
@@ -88,7 +88,7 @@ export default function Contact() {
           )}
         </section>
 
-        <aside className="h-fit overflow-hidden rounded-[6px] border border-brand-800 bg-brand-900 text-white shadow-[0_18px_45px_-32px_rgba(16,42,71,0.7)]">
+        <aside className="h-fit overflow-hidden rounded-2xl border border-brand-800 bg-brand-900 text-white shadow-[0_20px_50px_-28px_rgba(16,42,71,0.65)]">
           <div className="border-b border-white/15 p-6 sm:p-7">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-mist-200">Contact details</p>
             <h2 className="mt-2 text-3xl font-bold !text-white">Prefer a direct route?</h2>
