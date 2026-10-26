@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowUpRight, CheckCircle2, Search, ClipboardList, MapPin } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Search, ClipboardList, MapPin, Sparkles } from "lucide-react";
 import useSeo from "../hooks/useSeo";
 import farms from "../data/farms";
 import categories from "../data/categories";
@@ -28,7 +28,7 @@ function HeroSearch() {
     nav(`/farms${p.toString() ? `?${p}` : ""}`);
   };
   return (
-    <form onSubmit={submit} role="search" aria-label="Search poultry farms" className="mt-6 grid gap-3 rounded-[6px] bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.25)] sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_auto] lg:items-end">
+    <form onSubmit={submit} role="search" aria-label="Search poultry farms" className="mt-7 grid gap-3 rounded-2xl border border-white/40 bg-white/95 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.3)] backdrop-blur sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_auto] lg:items-end">
       <div>
         <label htmlFor="hq" className="mb-1.5 block text-sm font-semibold text-brand-900">Farm name, town or product</label>
         <input id="hq" value={q} onChange={(e) => setQ(e.target.value)} placeholder="For example: eggs, Namakkal" className={selectCls} />
@@ -74,7 +74,8 @@ export default function Home() {
       <section className="relative isolate scroll-mt-16 overflow-hidden bg-brand-950 text-white hero-section font-inter" aria-labelledby="hero-title">
         <img src={heroImage.src} alt="" width="1800" height="1200" fetchPriority="high" onError={(e) => { e.currentTarget.style.display = "none"; }} className="absolute inset-0 -z-20 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950/72 via-brand-950/48 to-brand-950/16" aria-hidden="true" />
-        <Container className="pb-10 pt-28 sm:pb-14 sm:pt-32">
+        <Container className="pb-8 pt-24 sm:pb-10 sm:pt-28">
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-sm font-semibold text-white/90 backdrop-blur">India's poultry community, connected</p>
           <h1 id="hero-title" className="max-w-3xl font-hero hero-heading !font-inter text-4xl font-bold tracking-tight !text-white sm:text-6xl">Find poultry farms, hatcheries and breeders across India</h1>
           <p className="mt-3 max-w-xl text-lg text-mist-200">Search by location, category or product, then contact the farm directly.</p>
           <HeroSearch />
@@ -104,7 +105,7 @@ export default function Home() {
           {categories.map((c) => {
             const n = farms.filter((f) => f.category === c.id).length;
             return (
-              <li key={c.id} className="group relative overflow-hidden rounded-[6px] border border-line bg-white focus-within:ring-2 focus-within:ring-ochre-500">
+              <li key={c.id} className="group relative overflow-hidden rounded-2xl border border-line bg-white shadow-[0_12px_28px_-20px_rgba(16,42,71,0.45)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_20px_36px_-18px_rgba(16,42,71,0.45)] focus-within:ring-2 focus-within:ring-ochre-500">
                 <Img src={photosFor(c.id)[0]?.thumb} alt="" ratio="aspect-[4/3]" icon={c.icon} />
                 <div className="p-4">
                   <h3 className="text-xl font-bold"><Link to={`/farms?category=${c.id}`} className="after:absolute after:inset-0 hover:underline focus-visible:outline-none">{c.name}</Link></h3>
@@ -133,7 +134,7 @@ export default function Home() {
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {byState.map(([st, n]) => (
             <li key={st}>
-              <Link to={`/farms?state=${encodeURIComponent(st)}`} className="flex items-center justify-between rounded-[6px] border border-mist-300 bg-white px-4 py-3.5 font-semibold text-brand-900 transition-colors hover:border-brand-700 hover:bg-mist-50">
+              <Link to={`/farms?state=${encodeURIComponent(st)}`} className="flex items-center justify-between rounded-xl border border-mist-300 bg-white px-4 py-3.5 font-semibold text-brand-900 shadow-[0_8px_22px_-18px_rgba(16,42,71,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-700 hover:bg-mist-50 hover:shadow-md">
                 <span className="flex items-center gap-2"><MapPin size={18} className="text-brand-700" aria-hidden="true" />{st}</span>
                 <span className="text-sm font-medium text-ink-soft">{n} {n === 1 ? "farm" : "farms"}</span>
               </Link>
@@ -153,7 +154,7 @@ export default function Home() {
             ["Read the profile", "See location, farm type and the products the farm supplies."],
             ["Send an enquiry", "Ask about supply, breeds or visits, and agree terms with the farm."],
           ].map(([t, d], i) => (
-            <li key={t} className="flex gap-4 rounded-[6px] border border-line bg-white p-5">
+            <li key={t} className="flex gap-4 rounded-2xl border border-line bg-white p-5 shadow-[0_12px_28px_-20px_rgba(16,42,71,0.4)]">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-800 font-display text-xl font-bold text-white" aria-hidden="true">{i + 1}</span>
               <div><h3 className="text-lg font-bold">{t}</h3><p className="mt-1 text-sm text-ink-soft">{d}</p></div>
             </li>
@@ -199,7 +200,7 @@ export default function Home() {
           </div>
           <div className="relative mx-auto w-full max-w-xl lg:mx-0">
             <div aria-hidden="true" className="absolute -inset-3 rounded-[10px] border border-white/15" />
-            <Img src={sectionImages.onboarding} alt="Free-range chickens at a poultry farm" ratio="aspect-[5/4]" priority className="rounded-[6px] shadow-2xl" />
+            <Img src={sectionImages.onboarding} alt="Free-range chickens at a poultry farm" ratio="aspect-[5/4]" priority className="rounded-2xl shadow-2xl" />
           </div>
         </Container>
       </section>

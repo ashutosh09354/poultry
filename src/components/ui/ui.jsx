@@ -22,7 +22,7 @@ const tones = {
 };
 export function Section({ tone = "ivory", className = "", children, id, labelledBy }) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={`${tones[tone]} py-12 sm:py-16 ${className}`}>
+    <section id={id} aria-labelledby={labelledBy} className={`${tones[tone]} py-9 sm:py-12 ${className}`}>
       <Container>{children}</Container>
     </section>
   );
@@ -88,7 +88,7 @@ export function Breadcrumbs({ items, light = false }) {
 export function PageHeader({ title, intro, crumbs, children }) {
   return (
     <header className="scroll-mt-16 bg-brand-900 text-white hero-section">
-      <Container className="pb-10 pt-28 sm:pb-14 sm:pt-32">
+      <Container className="pb-8 pt-24 sm:pb-10 sm:pt-28">
         {crumbs && <Breadcrumbs items={crumbs} light />}
         <h1 className="max-w-3xl font-hero hero-heading !font-inter text-3xl font-bold tracking-tight !text-white sm:text-5xl">{title}</h1>
         {intro && <p className="mt-4 max-w-2xl font-sans text-base text-mist-200 sm:text-lg">{intro}</p>}

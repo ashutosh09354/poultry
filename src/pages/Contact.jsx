@@ -54,8 +54,8 @@ export default function Contact() {
       </PageHeader>
       <main className="relative overflow-hidden bg-mist-50">
         <div aria-hidden="true" className="absolute -right-24 top-10 h-72 w-72 rounded-full border-[28px] border-mist-200/60" />
-        <Container className="relative grid gap-8 py-10 sm:py-14 lg:grid-cols-[1.55fr_0.9fr] lg:gap-12">
-        <section className="rounded-2xl border border-mist-200 bg-white p-6 shadow-[0_20px_50px_-28px_rgba(16,42,71,0.35)] sm:p-9" aria-labelledby="message-heading">
+        <Container className="relative grid gap-6 py-8 sm:py-10 lg:grid-cols-[1.55fr_0.9fr] lg:gap-10">
+        <section className="rounded-2xl border border-mist-200 bg-white p-5 shadow-[0_20px_50px_-28px_rgba(16,42,71,0.35)] sm:p-7" aria-labelledby="message-heading">
           <div className="mb-7 flex items-start gap-4 border-b border-line pb-6">
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB]"><Send size={20} aria-hidden="true" /></span>
             <div>
