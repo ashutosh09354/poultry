@@ -32,7 +32,7 @@ export default function About() {
         <h2 id="val" className="mb-8 text-3xl font-bold">Our approach</h2>
         <ul className="grid gap-4 md:grid-cols-2">
           {values.map(([t, d]) => (
-            <li key={t} className="rounded-[6px] border border-sage-300 bg-white p-6"><h3 className="text-xl font-bold">{t}</h3><p className="mt-2 text-ink-soft">{d}</p></li>
+            <li key={t} className="rounded-[6px] border border-mist-300 bg-white p-6"><h3 className="text-xl font-bold">{t}</h3><p className="mt-2 text-ink-soft">{d}</p></li>
           ))}
         </ul>
       </Section>

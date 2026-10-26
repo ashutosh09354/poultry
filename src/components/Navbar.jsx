@@ -5,7 +5,7 @@ import { mainNav } from "../data/site";
 import Logo from "./Logo";
 import { Container } from "./ui/ui";
 
-const linkBase = "rounded-[4px] px-2.5 py-2 text-[0.92rem] font-medium text-forest-900 hover:bg-sage-100";
+const linkBase = "rounded-[4px] px-2.5 py-2 text-[0.92rem] font-medium text-brand-900 hover:bg-mist-100";
 
 function DesktopDropdown({ item, open, onToggle, onClose }) {
   const { pathname } = useLocation();
@@ -17,17 +17,17 @@ function DesktopDropdown({ item, open, onToggle, onClose }) {
         aria-expanded={open}
         aria-haspopup="true"
         onClick={onToggle}
-        className={`${linkBase} flex items-center gap-1 ${active ? "bg-sage-100" : ""}`}
+        className={`${linkBase} flex items-center gap-1 ${active ? "bg-mist-100" : ""}`}
       >
         {item.label}
         <ChevronDown size={15} aria-hidden="true" className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <ul className="absolute left-0 top-full z-50 mt-1 w-64 rounded-[4px] border border-line bg-white p-1.5 shadow-[0_8px_24px_rgba(18,53,36,0.12)]">
+        <ul className="absolute left-0 top-full z-50 mt-1 w-64 rounded-[4px] border border-line bg-white p-1.5 shadow-[0_8px_24px_rgba(16,42,71,0.12)]">
           {item.children.map((c) => (
             <li key={c.to + c.label}>
-              <Link to={c.to} onClick={onClose} className="block rounded-[3px] px-3 py-2 hover:bg-sage-100">
-                <span className="block text-sm font-semibold text-forest-900">{c.label}</span>
+              <Link to={c.to} onClick={onClose} className="block rounded-[3px] px-3 py-2 hover:bg-mist-100">
+                <span className="block text-sm font-semibold text-brand-900">{c.label}</span>
                 {c.hint && <span className="block text-xs text-ink-soft">{c.hint}</span>}
               </Link>
             </li>
@@ -58,7 +58,7 @@ export default function Navbar() {
     return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
   }, []);
 
-  const cta = "rounded-[4px] bg-[#f4b942] px-4 py-2.5 text-[0.92rem] font-bold text-forest-950 shadow-sm hover:bg-[#e3a52e]";
+  const cta = "rounded-[4px] bg-[#2563EB] px-4 py-2.5 text-[0.92rem] font-bold text-white shadow-sm hover:bg-[#1D4ED8]";
 
   return (
     <header ref={navRef} className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur">
@@ -73,7 +73,7 @@ export default function Navbar() {
                 <DesktopDropdown key={item.label} item={item} open={openIdx === i} onToggle={() => setOpenIdx(openIdx === i ? null : i)} onClose={() => setOpenIdx(null)} />
               ) : (
                 <li key={item.to}>
-                  <NavLink to={item.to} end={item.to === "/"} className={({ isActive }) => `${linkBase} block ${isActive ? "bg-sage-100" : ""}`}>
+                  <NavLink to={item.to} end={item.to === "/"} className={({ isActive }) => `${linkBase} block ${isActive ? "bg-mist-100" : ""}`}>
                     {item.label}
                   </NavLink>
                 </li>
@@ -86,7 +86,7 @@ export default function Navbar() {
           <Link to="/list-your-farm" className={`${cta} hidden sm:inline-block`}>List Your Farm</Link>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-line bg-white text-forest-900 xl:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-line bg-white text-brand-900 xl:hidden"
             aria-expanded={mobile}
             aria-controls="mobile-menu"
             aria-label={mobile ? "Close menu" : "Open menu"}
@@ -105,20 +105,20 @@ export default function Navbar() {
                 <li key={item.label}>
                   {item.children ? (
                     <>
-                      <button type="button" aria-expanded={mobileSub === i} onClick={() => setMobileSub(mobileSub === i ? null : i)} className="flex w-full items-center justify-between py-3 text-left font-semibold text-forest-900">
+                      <button type="button" aria-expanded={mobileSub === i} onClick={() => setMobileSub(mobileSub === i ? null : i)} className="flex w-full items-center justify-between py-3 text-left font-semibold text-brand-900">
                         {item.label}
                         <ChevronDown size={18} aria-hidden="true" className={`transition-transform ${mobileSub === i ? "rotate-180" : ""}`} />
                       </button>
                       {mobileSub === i && (
-                        <ul className="mb-2 ml-3 border-l-2 border-sage-200 pl-3">
+                        <ul className="mb-2 ml-3 border-l-2 border-mist-200 pl-3">
                           {item.children.map((c) => (
-                            <li key={c.to + c.label}><Link to={c.to} className="block py-2 text-ink-soft hover:text-forest-900">{c.label}</Link></li>
+                            <li key={c.to + c.label}><Link to={c.to} className="block py-2 text-ink-soft hover:text-brand-900">{c.label}</Link></li>
                           ))}
                         </ul>
                       )}
                     </>
                   ) : (
-                    <NavLink to={item.to} end={item.to === "/"} className={({ isActive }) => `block py-3 font-semibold ${isActive ? "text-forest-600" : "text-forest-900"}`}>{item.label}</NavLink>
+                    <NavLink to={item.to} end={item.to === "/"} className={({ isActive }) => `block py-3 font-semibold ${isActive ? "text-brand-600" : "text-brand-900"}`}>{item.label}</NavLink>
                   )}
                 </li>
               ))}

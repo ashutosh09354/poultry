@@ -19,7 +19,7 @@ export default function Accordion({ items }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left font-semibold text-forest-900 hover:bg-sage-50"
+                className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left font-semibold text-brand-900 hover:bg-mist-50"
               >
                 <span>{it.q}</span>
                 <ChevronDown size={20} aria-hidden="true" className={`shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />

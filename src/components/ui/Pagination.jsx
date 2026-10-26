@@ -15,7 +15,7 @@ export default function Pagination({ page, pages, onChange }) {
           onClick={() => onChange(p)}
           aria-label={`Page ${p}`}
           aria-current={p === page ? "page" : undefined}
-          className={`${item} ${p === page ? "border-forest-800 bg-forest-800 text-white" : "border-line bg-white text-forest-900 hover:bg-sage-100"}`}
+          className={`${item} ${p === page ? "border-brand-800 bg-brand-800 text-white" : "border-line bg-white text-brand-900 hover:bg-mist-100"}`}
         >
           {p}
         </button>

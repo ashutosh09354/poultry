@@ -29,8 +29,8 @@ export default function HowItWorks() {
               <ol className="mt-5 space-y-5">
                 {j.steps.map(([t, d], i) => (
                   <li key={t} className="flex gap-4">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-800 text-sm font-bold text-white" aria-hidden="true">{i + 1}</span>
-                    <div><h3 className="!font-sans text-base font-bold text-forest-900">{t}</h3><p className="mt-0.5 text-sm text-ink-soft">{d}</p></div>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-800 text-sm font-bold text-white" aria-hidden="true">{i + 1}</span>
+                    <div><h3 className="!font-sans text-base font-bold text-brand-900">{t}</h3><p className="mt-0.5 text-sm text-ink-soft">{d}</p></div>
                   </li>
                 ))}
               </ol>

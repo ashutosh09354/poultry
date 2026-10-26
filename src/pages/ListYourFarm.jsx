@@ -65,7 +65,7 @@ export default function ListYourFarm() {
                   ["Products", f.products.map((p) => products.find((x) => x.id === p).name).join(", ")],
                   ["Contact", `${f.contactName}, ${f.phone}, ${f.email}`], ["Description", f.description || "None"],
                   ["Images", files.length ? files.map((x) => x.name).join(", ") : "None"],
-                ].map(([k, v]) => <div key={k} className="grid gap-1 p-4 sm:grid-cols-[9rem_1fr]"><dt className="font-semibold text-forest-900">{k}</dt><dd className="text-ink-soft">{v}</dd></div>)}
+                ].map(([k, v]) => <div key={k} className="grid gap-1 p-4 sm:grid-cols-[9rem_1fr]"><dt className="font-semibold text-brand-900">{k}</dt><dd className="text-ink-soft">{v}</dd></div>)}
               </dl>
               <Button variant="outline" onClick={() => setDone(false)}>Edit details</Button>
             </div>
@@ -74,7 +74,7 @@ export default function ListYourFarm() {
               {Object.keys(errors).filter((k) => errors[k]).length > 0 && <Notice tone="error" title="Please fix the highlighted fields">Each field with a problem explains what to change.</Notice>}
 
               <fieldset className="space-y-5 rounded-[6px] border border-line bg-white p-5">
-                <legend className="px-2 text-lg font-bold text-forest-900">Farm details</legend>
+                <legend className="px-2 text-lg font-bold text-brand-900">Farm details</legend>
                 <TextInput id="farmName" label="Farm name" required value={f.farmName} onChange={on("farmName")} error={errors.farmName} />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <SelectInput id="state" label="State" required value={f.state} onChange={(e) => setF({ ...f, state: e.target.value, city: "" })} placeholder="Select a state" options={statesData.map((s) => s.state)} error={errors.state} />
@@ -84,11 +84,11 @@ export default function ListYourFarm() {
                   <SelectInput id="farmType" label="Farm type" required value={f.farmType} onChange={on("farmType")} placeholder="Select a farm type" options={farmTypes} error={errors.farmType} />
                 </div>
                 <fieldset>
-                  <legend className="mb-1.5 text-sm font-semibold text-forest-900">Available products <span className="text-danger" aria-hidden="true">*</span></legend>
+                  <legend className="mb-1.5 text-sm font-semibold text-brand-900">Available products <span className="text-danger" aria-hidden="true">*</span></legend>
                   <div id="products" tabIndex={-1} className="grid gap-2 sm:grid-cols-2" aria-describedby={errors.products ? "products-err" : undefined}>
                     {products.map((p) => (
-                      <label key={p.id} className="flex cursor-pointer items-center gap-2.5 rounded-[4px] border border-[#b8c4b5] bg-white px-3 py-2.5 text-sm">
-                        <input type="checkbox" checked={f.products.includes(p.id)} onChange={() => toggleProduct(p.id)} className="h-4 w-4 accent-forest-800" />{p.name}
+                      <label key={p.id} className="flex cursor-pointer items-center gap-2.5 rounded-[4px] border border-[#b5c3d4] bg-white px-3 py-2.5 text-sm">
+                        <input type="checkbox" checked={f.products.includes(p.id)} onChange={() => toggleProduct(p.id)} className="h-4 w-4 accent-brand-800" />{p.name}
                       </label>
                     ))}
                   </div>
@@ -98,7 +98,7 @@ export default function ListYourFarm() {
               </fieldset>
 
               <fieldset className="space-y-5 rounded-[6px] border border-line bg-white p-5">
-                <legend className="px-2 text-lg font-bold text-forest-900">Contact details</legend>
+                <legend className="px-2 text-lg font-bold text-brand-900">Contact details</legend>
                 <TextInput id="contactName" label="Contact person" required autoComplete="name" value={f.contactName} onChange={on("contactName")} error={errors.contactName} />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <TextInput id="phone" type="tel" label="Mobile number" required autoComplete="tel" value={f.phone} onChange={on("phone")} error={errors.phone} />
@@ -107,9 +107,9 @@ export default function ListYourFarm() {
               </fieldset>
 
               <fieldset className="rounded-[6px] border border-line bg-white p-5">
-                <legend className="px-2 text-lg font-bold text-forest-900">Photos</legend>
+                <legend className="px-2 text-lg font-bold text-brand-900">Photos</legend>
                 <Field id="images" label="Farm images" hint="Up to 5 images, 5 MB each. Use only photos of your own farm." error={errors.images}>
-                  <input id="images" name="images" type="file" accept="image/*" multiple onChange={onFiles} aria-describedby={errors.images ? "images-err" : "images-hint"} className="block w-full text-sm file:mr-4 file:rounded-[4px] file:border-0 file:bg-sage-100 file:px-4 file:py-2 file:font-semibold file:text-forest-900" />
+                  <input id="images" name="images" type="file" accept="image/*" multiple onChange={onFiles} aria-describedby={errors.images ? "images-err" : "images-hint"} className="block w-full text-sm file:mr-4 file:rounded-[4px] file:border-0 file:bg-mist-100 file:px-4 file:py-2 file:font-semibold file:text-brand-900" />
                 </Field>
                 {files.length > 0 && <ul className="mt-3 list-disc pl-5 text-sm text-ink-soft">{files.map((x) => <li key={x.name}>{x.name}</li>)}</ul>}
               </fieldset>

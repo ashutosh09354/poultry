@@ -30,8 +30,8 @@ export default function ArticleDetail() {
         {showToc && (
           <nav aria-label="Table of contents" className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="!font-sans text-sm font-bold">In this guide</h2>
-            <ol className="mt-3 space-y-2 border-l-2 border-sage-200 pl-4 text-sm">
-              {a.sections.map((s) => <li key={s.id}><a href={`#${s.id}`} className="text-ink-soft hover:text-forest-900 hover:underline">{s.heading}</a></li>)}
+            <ol className="mt-3 space-y-2 border-l-2 border-mist-200 pl-4 text-sm">
+              {a.sections.map((s) => <li key={s.id}><a href={`#${s.id}`} className="text-ink-soft hover:text-brand-900 hover:underline">{s.heading}</a></li>)}
             </ol>
           </nav>
         )}
@@ -52,7 +52,7 @@ export default function ArticleDetail() {
       <Section tone="white" labelledBy="rel">
         <h2 id="rel" className="mb-6 text-3xl font-bold">Related guides</h2>
         <ul className="grid gap-5 md:grid-cols-3">{related.map((r) => <li key={r.slug}><ArticleCard article={r} /></li>)}</ul>
-        <p className="mt-6 text-sm"><Link to="/resources" className="font-semibold text-forest-700 underline">Back to the Knowledge Hub</Link></p>
+        <p className="mt-6 text-sm"><Link to="/resources" className="font-semibold text-brand-700 underline">Back to the Knowledge Hub</Link></p>
       </Section>
     </>
   );

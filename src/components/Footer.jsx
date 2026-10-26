@@ -8,7 +8,7 @@ const col = (title, links) => (
     <h2 className="!font-sans text-sm font-bold !text-white">{title}</h2>
     <ul className="mt-3 space-y-2 text-sm">
       {links.map(([label, to]) => (
-        <li key={label}><Link to={to} className="text-sage-200 hover:text-white hover:underline">{label}</Link></li>
+        <li key={label}><Link to={to} className="text-mist-200 hover:text-white hover:underline">{label}</Link></li>
       ))}
     </ul>
   </div>
@@ -16,7 +16,7 @@ const col = (title, links) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-forest-950 text-sage-200">
+    <footer className="bg-brand-950 text-mist-200">
       <Container className="grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1fr]">
         <div>
           <Logo light />
@@ -31,13 +31,14 @@ export default function Footer() {
           <h2 className="!font-sans text-sm font-bold !text-white">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li><a href={`mailto:${site.email}`} className="hover:text-white hover:underline">{site.email}</a></li>
-            <li><a href={site.phoneHref} className="hover:text-white hover:underline">{site.phone}</a></li>
+            {site.phone && <li><a href={site.phoneHref} className="hover:text-white hover:underline">{site.phone}</a></li>}
+            <li><Link to="/contact" className="hover:text-white hover:underline">Send us a message</Link></li>
           </ul>
         </div>
       </Container>
-      <div className="border-t border-forest-800">
+      <div className="border-t border-brand-800">
         <Container className="flex flex-col gap-3 py-5 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Poultry</p>
+          <p>© {new Date().getFullYear()} Poultry.</p>
           <ul className="flex flex-wrap gap-x-5 gap-y-1">
             <li><Link to="/privacy-policy" className="hover:text-white hover:underline">Privacy policy</Link></li>
             <li><Link to="/terms" className="hover:text-white hover:underline">Terms of use</Link></li>

@@ -19,7 +19,7 @@ function Gallery({ photos, name, icon }) {
         <ul className="mt-3 flex gap-3" aria-label="Photo gallery">
           {photos.map((p, idx) => (
             <li key={p.src}>
-              <button type="button" onClick={() => setI(idx)} aria-label={`Show photo ${idx + 1}`} aria-pressed={idx === i} className={`block w-24 overflow-hidden rounded-[4px] border-2 ${idx === i ? "border-forest-700" : "border-transparent"}`}>
+              <button type="button" onClick={() => setI(idx)} aria-label={`Show photo ${idx + 1}`} aria-pressed={idx === i} className={`block w-24 overflow-hidden rounded-[4px] border-2 ${idx === i ? "border-brand-700" : "border-transparent"}`}>
                 <Img src={p.thumb} alt="" ratio="aspect-[4/3]" />
               </button>
             </li>
@@ -66,7 +66,7 @@ export default function FarmDetail() {
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {farmProducts.map((p) => (
                 <li key={p.id} className="flex items-start gap-3 rounded-[6px] border border-line bg-white p-4">
-                  <Icon name={p.icon} size={22} className="mt-0.5 text-forest-700" />
+                  <Icon name={p.icon} size={22} className="mt-0.5 text-brand-700" />
                   <div><h3 className="text-lg font-bold">{p.name}</h3><p className="text-sm text-ink-soft">{p.askAbout.join(", ")}</p></div>
                 </li>
               ))}
@@ -83,9 +83,9 @@ export default function FarmDetail() {
           <div className="rounded-[6px] border border-line bg-white p-5">
             <h2 className="text-xl font-bold">Farm details</h2>
             <dl className="mt-4 space-y-3 text-sm">
-              <div><dt className="font-semibold text-forest-900">Location</dt><dd className="mt-0.5 flex items-start gap-1.5 text-ink-soft"><MapPin size={16} aria-hidden="true" className="mt-0.5 shrink-0" />{farm.area}, {farm.city}, {farm.state}</dd></div>
-              <div><dt className="font-semibold text-forest-900">Category</dt><dd className="text-ink-soft">{cat.name}</dd></div>
-              <div><dt className="font-semibold text-forest-900">Farm type</dt><dd className="text-ink-soft">{farm.farmType}</dd></div>
+              <div><dt className="font-semibold text-brand-900">Location</dt><dd className="mt-0.5 flex items-start gap-1.5 text-ink-soft"><MapPin size={16} aria-hidden="true" className="mt-0.5 shrink-0" />{farm.area}, {farm.city}, {farm.state}</dd></div>
+              <div><dt className="font-semibold text-brand-900">Category</dt><dd className="text-ink-soft">{cat.name}</dd></div>
+              <div><dt className="font-semibold text-brand-900">Farm type</dt><dd className="text-ink-soft">{farm.farmType}</dd></div>
             </dl>
           </div>
 

@@ -17,7 +17,7 @@ export default function Resources() {
   const filtering = q.trim() || cat !== "All";
   const featured = articles.filter((a) => a.featured);
 
-  const chip = (active) => `rounded-[4px] border px-3 py-1.5 text-sm font-semibold ${active ? "border-forest-800 bg-forest-800 text-white" : "border-line bg-white text-forest-900 hover:bg-sage-100"}`;
+  const chip = (active) => `rounded-[4px] border px-3 py-1.5 text-sm font-semibold ${active ? "border-brand-800 bg-brand-800 text-white" : "border-line bg-white text-brand-900 hover:bg-mist-100"}`;
 
   return (
     <>
@@ -38,7 +38,7 @@ export default function Resources() {
             <div className="relative max-w-md">
               <label htmlFor="rq" className="sr-only">Search guides</label>
               <Search size={18} aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-soft" />
-              <input id="rq" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search guides" className="block w-full rounded-[4px] border border-[#b8c4b5] bg-white py-2.5 pl-10 pr-3" />
+              <input id="rq" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search guides" className="block w-full rounded-[4px] border border-[#b5c3d4] bg-white py-2.5 pl-10 pr-3" />
             </div>
             <div role="group" aria-label="Filter by category" className="flex flex-wrap gap-2">
               {["All", ...articleCategories].map((c) => (
@@ -50,10 +50,10 @@ export default function Resources() {
           {list.length ? (
             <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{list.map((a) => <li key={a.slug}><ArticleCard article={a} /></li>)}</ul>
           ) : (
-            <div className="rounded-[6px] border border-dashed border-sage-300 bg-white p-10 text-center">
+            <div className="rounded-[6px] border border-dashed border-mist-300 bg-white p-10 text-center">
               <h3 className="text-2xl font-bold">No guides match your search</h3>
               <p className="mt-2 text-ink-soft">Try a shorter keyword or choose a different category.</p>
-              <button type="button" onClick={() => { setQ(""); setCat("All"); }} className="mt-4 rounded-[4px] bg-forest-800 px-5 py-2.5 font-semibold text-white">Clear search</button>
+              <button type="button" onClick={() => { setQ(""); setCat("All"); }} className="mt-4 rounded-[4px] bg-brand-800 px-5 py-2.5 font-semibold text-white">Clear search</button>
             </div>
           )}
         </section>

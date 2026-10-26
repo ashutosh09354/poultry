@@ -18,7 +18,7 @@ export default function Services() {
         <ul className="grid gap-6 md:grid-cols-2">
           {services.map((s) => (
             <li key={s.title} className="flex flex-col rounded-[6px] border border-line bg-white p-6">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-sage-100 text-forest-700"><Icon name={s.icon} size={24} /></span>
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-mist-100 text-brand-700"><Icon name={s.icon} size={24} /></span>
               <h2 className="mt-4 text-2xl font-bold">{s.title}</h2>
               <p className="mt-2 text-ink-soft">{s.body}</p>
               <Button to={s.to} variant={s.to === "/list-your-farm" ? "cta" : "outline"} size="sm" className="mt-auto self-start">{s.cta}</Button>
@@ -30,7 +30,7 @@ export default function Services() {
         <h2 id="not-title" className="text-3xl font-bold">What Poultry does not provide</h2>
         <p className="mt-2 max-w-2xl text-ink-soft">To avoid confusion, these things are outside what the platform does.</p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {not.map((n) => <li key={n} className="rounded-[4px] border border-sage-300 bg-white px-4 py-3 text-sm font-medium">{n}</li>)}
+          {not.map((n) => <li key={n} className="rounded-[4px] border border-mist-300 bg-white px-4 py-3 text-sm font-medium">{n}</li>)}
         </ul>
       </Section>
     </>

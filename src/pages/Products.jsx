@@ -16,7 +16,7 @@ export default function Products() {
           {products.map((p) => (
             <li key={p.id} className="flex flex-col rounded-[6px] border border-line bg-white p-6">
               <div className="flex items-start justify-between gap-3">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-sage-100 text-forest-700"><Icon name={p.icon} size={24} /></span>
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-mist-100 text-brand-700"><Icon name={p.icon} size={24} /></span>
                 <Badge tone="outline">Availability: ask the farm</Badge>
               </div>
               <h2 className="mt-4 text-2xl font-bold">{p.name}</h2>

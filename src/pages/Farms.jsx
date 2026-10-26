@@ -80,7 +80,7 @@ export default function Farms() {
       <Container className="py-8 sm:py-10">
         <div className="grid gap-6 lg:grid-cols-[17rem_1fr]">
           <aside aria-label="Filters" className="lg:sticky lg:top-24 lg:self-start">
-            <button type="button" className="flex w-full items-center justify-between rounded-[4px] border border-line bg-white px-4 py-3 font-semibold text-forest-900 lg:hidden" aria-expanded={showFilters} aria-controls="filters-panel" onClick={() => setShowFilters(!showFilters)}>
+            <button type="button" className="flex w-full items-center justify-between rounded-[4px] border border-line bg-white px-4 py-3 font-semibold text-brand-900 lg:hidden" aria-expanded={showFilters} aria-controls="filters-panel" onClick={() => setShowFilters(!showFilters)}>
               <span className="flex items-center gap-2"><SlidersHorizontal size={18} aria-hidden="true" />Filters{activeCount ? ` (${activeCount})` : ""}</span>
             </button>
             <div id="filters-panel" className={`${showFilters ? "block" : "hidden"} mt-3 rounded-[6px] border border-line bg-white p-4 lg:mt-0 lg:block`}>
@@ -92,10 +92,10 @@ export default function Farms() {
           <div>
             <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end">
               <div className="flex-1">
-                <label htmlFor="farm-q" className="mb-1.5 block text-sm font-semibold text-forest-900">Search farms</label>
+                <label htmlFor="farm-q" className="mb-1.5 block text-sm font-semibold text-brand-900">Search farms</label>
                 <div className="relative">
                   <Search size={18} aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-soft" />
-                  <input id="farm-q" type="search" value={q} onChange={(e) => set({ q: e.target.value })} placeholder="Name, town, product" className="block w-full rounded-[4px] border border-[#b8c4b5] bg-white py-2.5 pl-10 pr-3" />
+                  <input id="farm-q" type="search" value={q} onChange={(e) => set({ q: e.target.value })} placeholder="Name, town, product" className="block w-full rounded-[4px] border border-[#b5c3d4] bg-white py-2.5 pl-10 pr-3" />
                 </div>
               </div>
               <div className="sm:w-52">
@@ -108,7 +108,7 @@ export default function Farms() {
                 {visible.map((f) => <li key={f.slug}><FarmCard farm={f} /></li>)}
               </ul>
             ) : (
-              <div className="rounded-[6px] border border-dashed border-sage-300 bg-white p-10 text-center">
+              <div className="rounded-[6px] border border-dashed border-mist-300 bg-white p-10 text-center">
                 <h2 className="text-2xl font-bold">No farms match these filters</h2>
                 <p className="mx-auto mt-2 max-w-md text-ink-soft">Try removing a filter or searching a different town or product.</p>
                 <div className="mt-5 flex flex-wrap justify-center gap-3">
@@ -118,7 +118,7 @@ export default function Farms() {
               </div>
             )}
             <Pagination page={current} pages={pages} onChange={(p) => { set({ page: p === 1 ? "" : String(p) }); window.scrollTo({ top: 0 }); }} />
-            <p className="mt-8 text-sm text-ink-soft">See something wrong with a listing? <Link to="/report-listing" className="font-semibold text-forest-700 underline">Report it</Link>.</p>
+            <p className="mt-8 text-sm text-ink-soft">See something wrong with a listing? <Link to="/report-listing" className="font-semibold text-brand-700 underline">Report it</Link>.</p>
           </div>
         </div>
       </Container>

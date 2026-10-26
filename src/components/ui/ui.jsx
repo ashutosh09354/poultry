@@ -17,8 +17,8 @@ export function Container({ className = "", children, as: Tag = "div" }) {
 const tones = {
   ivory: "bg-ivory",
   white: "bg-white",
-  sage: "bg-sage-100",
-  forest: "bg-forest-900 text-sage-100",
+  sage: "bg-mist-100",
+  forest: "bg-brand-900 text-mist-100",
 };
 export function Section({ tone = "ivory", className = "", children, id, labelledBy }) {
   return (
@@ -33,7 +33,7 @@ export function SectionHeading({ id, title, children, action, light = false }) {
     <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
       <div className="max-w-2xl">
         <h2 id={id} className={`text-3xl sm:text-4xl font-bold ${light ? "!text-white" : ""}`}>{title}</h2>
-        {children && <p className={`mt-3 text-base sm:text-lg ${light ? "text-sage-200" : "text-ink-soft"}`}>{children}</p>}
+        {children && <p className={`mt-3 text-base sm:text-lg ${light ? "text-mist-200" : "text-ink-soft"}`}>{children}</p>}
       </div>
       {action}
     </div>
@@ -41,10 +41,10 @@ export function SectionHeading({ id, title, children, action, light = false }) {
 }
 
 const btn = {
-  primary: "bg-forest-800 text-white hover:bg-forest-900 border-forest-800",
-  cta: "border-[#f4b942] bg-[#f4b942] text-forest-950 shadow-sm hover:border-[#e3a52e] hover:bg-[#e3a52e]",
-  outline: "bg-transparent text-forest-800 border-forest-800 hover:bg-forest-800 hover:text-white",
-  light: "bg-white text-forest-900 border-white hover:bg-sage-100",
+  primary: "bg-brand-800 text-white hover:bg-brand-900 border-brand-800",
+  cta: "border-[#f4b942] bg-[#f4b942] text-brand-950 shadow-sm hover:border-[#e3a52e] hover:bg-[#e3a52e]",
+  outline: "bg-transparent text-brand-800 border-brand-800 hover:bg-brand-800 hover:text-white",
+  light: "bg-white text-brand-900 border-white hover:bg-mist-100",
   ghostLight: "bg-transparent text-white border-white/70 hover:bg-white/10",
 };
 const sizes = { md: "px-5 py-2.5 text-[0.95rem]", sm: "px-3.5 py-2 text-sm", lg: "px-6 py-3 text-base" };
@@ -57,8 +57,8 @@ export function Button({ to, href, variant = "primary", size = "md", className =
 }
 
 const badgeTone = {
-  sage: "bg-sage-100 text-forest-800 border-sage-200",
-  forest: "bg-forest-800 text-white border-forest-800",
+  sage: "bg-mist-100 text-brand-800 border-mist-200",
+  forest: "bg-brand-800 text-white border-brand-800",
   ochre: "bg-ochre-100 text-ochre-700 border-[#ead9ae]",
   outline: "bg-white text-ink-soft border-line",
 };
@@ -69,7 +69,7 @@ export function Badge({ tone = "sage", children, className = "" }) {
 export function Breadcrumbs({ items, light = false }) {
   return (
     <nav aria-label="Breadcrumb" className="mb-4">
-      <ol className={`flex flex-wrap items-center gap-1.5 text-sm ${light ? "text-sage-200" : "text-ink-soft"}`}>
+      <ol className={`flex flex-wrap items-center gap-1.5 text-sm ${light ? "text-mist-200" : "text-ink-soft"}`}>
         {items.map((it, i) => (
           <li key={it.label} className="flex items-center gap-1.5">
             {i > 0 && <ChevronRight size={14} aria-hidden="true" />}
@@ -87,11 +87,11 @@ export function Breadcrumbs({ items, light = false }) {
 
 export function PageHeader({ title, intro, crumbs, children }) {
   return (
-    <header className="bg-forest-900 text-white">
-      <Container className="py-10 sm:py-14">
+    <header className="scroll-mt-16 bg-brand-900 text-white hero-section">
+      <Container className="pb-10 pt-28 sm:pb-14 sm:pt-32">
         {crumbs && <Breadcrumbs items={crumbs} light />}
-        <h1 className="max-w-3xl text-3xl font-bold !text-white sm:text-5xl">{title}</h1>
-        {intro && <p className="mt-4 max-w-2xl text-base text-sage-200 sm:text-lg">{intro}</p>}
+        <h1 className="max-w-3xl font-hero hero-heading !font-inter text-3xl font-bold tracking-tight !text-white sm:text-5xl">{title}</h1>
+        {intro && <p className="mt-4 max-w-2xl font-sans text-base text-mist-200 sm:text-lg">{intro}</p>}
         {children}
       </Container>
     </header>
@@ -99,8 +99,8 @@ export function PageHeader({ title, intro, crumbs, children }) {
 }
 
 const noticeStyle = {
-  info: ["bg-sage-100 border-sage-300 text-forest-900", "Info"],
-  success: ["bg-[#e3f1e5] border-[#9cc7a3] text-forest-900", "CircleCheck"],
+  info: ["bg-mist-100 border-mist-300 text-brand-900", "Info"],
+  success: ["bg-[#e3f1e5] border-[#9cc7a3] text-brand-900", "CircleCheck"],
   error: ["bg-[#f8e4e0] border-[#e0a79e] text-[#6b2217]", "CircleAlert"],
 };
 export function Notice({ tone = "info", title, children, className = "" }) {
@@ -118,12 +118,12 @@ export function Notice({ tone = "info", title, children, className = "" }) {
 
 /* Forms */
 const inputCls = (err) =>
-  `block w-full rounded-[4px] border bg-white px-3 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-soft/60 ${err ? "border-danger" : "border-[#b8c4b5]"}`;
+  `block w-full rounded-[4px] border bg-white px-3 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-soft/60 ${err ? "border-danger" : "border-[#b5c3d4]"}`;
 
 export function Field({ id, label, error, hint, required, plain, children }) {
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-semibold text-forest-900">
+      <label htmlFor={id} className="mb-1.5 block text-sm font-semibold text-brand-900">
         {label}{!plain && required && <span className="text-danger" aria-hidden="true"> *</span>}
         {!plain && !required && <span className="ml-1 font-normal text-ink-soft">(optional)</span>}
       </label>
@@ -172,9 +172,9 @@ export function Img({ src, alt, ratio = "aspect-[4/3]", className = "", icon = "
   const [failed, setFailed] = useState(false);
   const showFallback = !src || failed;
   return (
-    <div className={`relative overflow-hidden bg-sage-200 ${ratio} ${className}`}>
+    <div className={`relative overflow-hidden bg-mist-200 ${ratio} ${className}`}>
       {showFallback ? (
-        <div role="img" aria-label={alt} className="flex h-full w-full flex-col items-center justify-center gap-2 bg-sage-100 text-sage-500">
+        <div role="img" aria-label={alt} className="flex h-full w-full flex-col items-center justify-center gap-2 bg-mist-100 text-mist-500">
           <Icon name={icon} size={36} />
           <span className="text-xs font-medium">{label}</span>
         </div>

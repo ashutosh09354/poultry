@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import categories from "../data/categories";
 import products from "../data/products";
 import { cardPhotoFor } from "../data/images";
@@ -14,6 +14,7 @@ export default function FarmCard({ farm }) {
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-2 flex flex-wrap gap-1.5">
           <Badge tone="forest">{cat?.name}</Badge>
+          <Badge tone="sage">{farm.farmType}</Badge>
         </div>
         <h3 className="text-xl font-bold">
           <Link to={`/farms/${farm.slug}`} className="after:absolute after:inset-0 hover:underline focus-visible:outline-none">{farm.name}</Link>

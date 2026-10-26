@@ -11,7 +11,7 @@ export default function Faq() {
       <Container className="py-10 sm:py-14">
         <div className="grid gap-10 lg:grid-cols-[14rem_1fr]">
           <nav aria-label="FAQ sections" className="lg:sticky lg:top-24 lg:self-start">
-            <ul className="space-y-2 text-sm">{faqGroups.map((g) => <li key={g.id}><a href={`#${g.id}`} className="font-medium text-forest-800 hover:underline">{g.title}</a></li>)}</ul>
+            <ul className="space-y-2 text-sm">{faqGroups.map((g) => <li key={g.id}><a href={`#${g.id}`} className="font-medium text-brand-800 hover:underline">{g.title}</a></li>)}</ul>
           </nav>
           <div className="space-y-12">
             {faqGroups.map((g) => (

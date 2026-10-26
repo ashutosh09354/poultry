@@ -2,10 +2,10 @@
 // and have NOT been confirmed: replace them with real details before launch.
 const site = {
   name: "Poultry",
-  tagline: "A poultry farm directory for India",
+  tagline: "Find poultry farms, hatcheries and breeders across India",
   email: "info@poultry.com",
-  phone: "+91 xxxxxxxxxx",
-  phoneHref: "tel:+91xxxxxxxxxxx",
+  phone: "", // add the real number, e.g. "+91 98765 43210"; the phone link is hidden while this is empty
+  get phoneHref() { return this.phone ? `tel:${this.phone.replace(/[^\d+]/g, "")}` : ""; },
   // Set to true once the details above are confirmed; this controls the "unconfirmed" note on the Contact page.
   contactConfirmed: false,
 };
