@@ -113,7 +113,7 @@ export default function Farms() {
                 <p className="mx-auto mt-2 max-w-md text-ink-soft">Try removing a filter or searching a different town or product.</p>
                 <div className="mt-5 flex flex-wrap justify-center gap-3">
                   <Button onClick={clear}>Clear filters</Button>
-                  <Button to="/list-your-farm" variant="cta">List your farm</Button>
+                  <Button to="/contact" variant="cta">Contact us</Button>
                 </div>
               </div>
             )}

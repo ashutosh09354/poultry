@@ -3,7 +3,7 @@ import { Button, Container, Icon, PageHeader, Section } from "../components/ui/u
 
 const services = [
   { icon: "Search", title: "Farm discovery", body: "A searchable directory with filters for location, farm type, category and product, so buyers can shortlist farms quickly.", to: "/farms", cta: "Explore farms" },
-  { icon: "Megaphone", title: "Farmer visibility", body: "Poultry businesses can prepare a profile that describes the farm, its location and the products it supplies. This includes hatcheries and breeding farms.", to: "/list-your-farm", cta: "Prepare a listing" },
+  { icon: "Megaphone", title: "Farmer visibility", body: "Poultry businesses can contact us to discuss a profile that describes their farm, location and products.", to: "/contact", cta: "Contact us" },
   { icon: "Handshake", title: "Buyer and farmer connections", body: "An enquiry form lets a buyer ask a farm about supply, breeds or visits. Business enquiries, including from hatcheries, can be sent through the contact page.", to: "/contact?topic=business-enquiry", cta: "Send a business enquiry" },
   { icon: "BookOpen", title: "Knowledge Hub", body: "General guides on farm operations, biosecurity, hygiene and egg handling for farmers, and on checking a supplier for buyers.", to: "/resources", cta: "Read the guides" },
 ];
@@ -21,7 +21,7 @@ export default function Services() {
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-mist-100 text-brand-700"><Icon name={s.icon} size={24} /></span>
               <h2 className="mt-4 text-2xl font-bold">{s.title}</h2>
               <p className="mt-2 text-ink-soft">{s.body}</p>
-              <Button to={s.to} variant={s.to === "/list-your-farm" ? "cta" : "outline"} size="sm" className="mt-auto self-start">{s.cta}</Button>
+              <Button to={s.to} variant="outline" size="sm" className="mt-auto self-start">{s.cta}</Button>
             </li>
           ))}
         </ul>

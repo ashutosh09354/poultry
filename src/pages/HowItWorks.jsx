@@ -8,10 +8,10 @@ const journeys = [
     ["Send an enquiry", "Ask the farm about supply, quantities, breeds or a visit."],
     ["Check before you order", "Confirm details directly and consider a small first order. Our guide on evaluating a supplier can help."],
   ]},
-  { title: "If you are a farmer", cta: ["Prepare your listing", "/list-your-farm"], steps: [
+  { title: "If you are a farmer", cta: ["Contact us", "/contact"], steps: [
     ["Read the guidelines", "Understand what a good, accurate listing includes."],
     ["Gather your details", "Farm name, location, category, products, contact details and optional photos."],
-    ["Fill in the listing form", "Add your farm name, location, products and contact details."],
+    ["Contact us with your details", "Share your farm name, location, products and contact details."],
     ["Respond to enquiries", "Buyers can contact you through your listing."],
   ]},
 ];
@@ -34,7 +34,7 @@ export default function HowItWorks() {
                   </li>
                 ))}
               </ol>
-              <Button to={j.cta[1]} variant={j.cta[1] === "/list-your-farm" ? "cta" : "primary"} className="mt-6">{j.cta[0]}</Button>
+              <Button to={j.cta[1]} variant="primary" className="mt-6">{j.cta[0]}</Button>
             </section>
           ))}
         </div>

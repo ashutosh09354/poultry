@@ -92,6 +92,37 @@
 }
 
 @layer components {
+  @keyframes page-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hero-drift {
+    0%, 100% { transform: scale(1.04) translate3d(0, 0, 0); }
+    50% { transform: scale(1.09) translate3d(-0.7%, -0.5%, 0); }
+  }
+  .page-transition { animation: page-enter 420ms cubic-bezier(.16, 1, .3, 1) both; }
+  .hero-image-motion { animation: hero-drift 16s ease-in-out infinite; }
+  .react-bits-spotlight { transition: transform 240ms cubic-bezier(.16, 1, .3, 1), box-shadow 240ms ease, border-color 240ms ease; }
+  .react-bits-spotlight:hover { border-color: var(--color-mist-300); }
+  .scroll-reveal-pending {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .scroll-reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms ease-out, transform 500ms cubic-bezier(.16, 1, .3, 1);
+  }
+  .react-bits-split-word {
+    opacity: 0;
+    transform: translateY(105%);
+    transition: opacity 620ms cubic-bezier(.16, 1, .3, 1), transform 620ms cubic-bezier(.16, 1, .3, 1);
+  }
+  .react-bits-split.is-ready .react-bits-split-word { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .page-transition, .hero-image-motion { animation: none; }
+    .react-bits-split-word { opacity: 1; transform: none; transition: none; }
+  }
   .prose-article { max-width: 68ch; font-size: 1.0625rem; line-height: 1.75; }
   .prose-article h2 { font-size: 1.6rem; margin: 2.25rem 0 0.75rem; scroll-margin-top: 6rem; }
   .prose-article p { margin: 0 0 1.1rem; color: #28303c; }

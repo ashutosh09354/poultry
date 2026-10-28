@@ -11,6 +11,7 @@ import { heroImage, sectionImages, photosFor } from "../data/images";
 import { Button, Container, Section, SectionHeading, Icon, Img } from "../components/ui/ui";
 import FarmCard from "../components/FarmCard";
 import ArticleCard from "../components/ArticleCard";
+import SplitText from "../components/effects/SplitText";
 
 const selectCls = "w-full rounded-[4px] border border-[#b5c3d4] bg-white px-3 py-2.5 text-[0.95rem] text-ink";
 
@@ -58,7 +59,7 @@ export default function Home() {
   const insights = articles.filter((a) => a.featured);
 
   // Every number below is computed from the listings, so it can never drift from what the site really holds.
-  const stateCount = new Set(farms.map((f) => f.state)).size;
+  const stateCount = statesData.length;
   const cityCount = new Set(farms.map((f) => f.city)).size;
   const stats = [
     [farms.length, "farm listings"],
@@ -66,17 +67,17 @@ export default function Home() {
     [cityCount, "towns and cities"],
     [categories.length, "farm categories"],
   ];
-  const byState = Object.entries(farms.reduce((m, f) => ((m[f.state] = (m[f.state] || 0) + 1), m), {})).sort((a, b) => b[1] - a[1]);
+  const byState = statesData.map(({ state }) => [state, farms.filter((f) => f.state === state).length]);
 
   return (
     <>
       {/* Hero */}
       <section className="relative isolate scroll-mt-16 overflow-hidden bg-brand-950 text-white hero-section font-inter" aria-labelledby="hero-title">
-        <img src={heroImage.src} alt="" width="1800" height="1200" fetchPriority="high" onError={(e) => { e.currentTarget.style.display = "none"; }} className="absolute inset-0 -z-20 h-full w-full object-cover" />
+        <img src={heroImage.src} alt="" width="1800" height="1200" fetchPriority="high" onError={(e) => { e.currentTarget.style.display = "none"; }} className="hero-image-motion absolute inset-0 -z-20 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950/72 via-brand-950/48 to-brand-950/16" aria-hidden="true" />
         <Container className="pb-8 pt-24 sm:pb-10 sm:pt-28">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-sm font-semibold text-white/90 backdrop-blur">India's poultry community, connected</p>
-          <h1 id="hero-title" className="max-w-3xl font-hero hero-heading !font-inter text-4xl font-bold tracking-tight !text-white sm:text-6xl">Find poultry farms, hatcheries and breeders across India</h1>
+          <h1 id="hero-title" className="max-w-3xl font-hero hero-heading !font-inter text-4xl font-bold tracking-tight !text-white sm:text-6xl"><SplitText text="Find poultry farms, hatcheries and breeders across India" /></h1>
           <p className="mt-3 max-w-xl text-lg text-mist-200">Search by location, category or product, then contact the farm directly.</p>
           <HeroSearch />
         </Container>
@@ -187,14 +188,14 @@ export default function Home() {
           <div className="max-w-xl">
             <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-[#f4b942]"><ClipboardList size={17} aria-hidden="true" />For poultry businesses</p>
             <h2 id="farmer-title" className="mt-4 text-4xl font-bold !text-white sm:text-5xl">Give your farm a place to be found.</h2>
-            <p className="mt-5 max-w-lg text-base leading-7 text-mist-200 sm:text-lg">List your farm so buyers can see what you supply and contact you directly.</p>
+            <p className="mt-5 max-w-lg text-base leading-7 text-mist-200 sm:text-lg">Contact us to discuss how your farm can be discovered by buyers across the directory.</p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {["Farm name and location", "Farm category", "Products you supply", "Contact details", "Photos (optional)"].map((i) => (
                 <li key={i} className="flex items-center gap-2.5 rounded-[4px] border border-white/10 bg-white/5 px-3 py-2.5 text-sm font-medium text-mist-100"><CheckCircle2 size={17} aria-hidden="true" className="shrink-0 text-[#f4b942]" />{i}</li>
               ))}
             </ul>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button to="/list-your-farm" variant="cta">List your farm <ArrowUpRight size={18} aria-hidden="true" /></Button>
+              <Button to="/contact" variant="cta">Contact us <ArrowUpRight size={18} aria-hidden="true" /></Button>
               <Button to="/listing-guidelines" variant="ghostLight">Read the guidelines</Button>
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
         {col("Explore", [["Explore farms", "/farms"], ["Poultry categories", "/categories"], ["Products", "/products"], ["Services", "/services"]])}
         {col("Learn", [["Knowledge Hub", "/resources"], ["How it works", "/how-it-works"], ["FAQ", "/faq"], ["Listing guidelines", "/listing-guidelines"]])}
-        {col("Company", [["About", "/about"], ["List your farm", "/list-your-farm"], ["Contact", "/contact"], ["Report a listing", "/report-listing"]])}
+        {col("Company", [["About", "/about"], ["Contact", "/contact"], ["Report a listing", "/report-listing"]])}
         <div>
           <h2 className="!font-sans text-sm font-bold !text-white">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">

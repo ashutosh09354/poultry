@@ -5,7 +5,7 @@ const faqGroups = [
     { q: "Are the prices on the site current?", a: "The site does not show prices. Ask the farm for current prices and availability." },
   ]},
   { id: "farmers", title: "For poultry farmers", items: [
-    { q: "How do I get my farm listed?", a: "Use the List Your Farm page to submit your farm details." },
+    { q: "How do I get my farm listed?", a: "Contact us with your farm details and we will advise you on the next steps." },
     { q: "What kinds of farms can be listed?", a: "Broiler farms, layer farms, country chicken farms, hatcheries and poultry breeding farms." },
     { q: "Does it cost anything to list?", a: "No pricing has been set. This page will be updated if that changes." },
   ]},

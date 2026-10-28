@@ -2,7 +2,8 @@ const mk = (slug, name, category, farmType, state, city, area, products, summary
   slug, name, category, farmType, state, city, area, products, summary, description,
 });
 
-const farms = [
+// Keep every existing listing, but present locations within the four states served by the directory.
+const rawFarms = [
   mk("deccan-broiler-works", "Deccan Broiler Works", "broiler", "Commercial", "Telangana", "Hyderabad", "Outskirts, Medchal side",
     ["broiler-chicken"], "Broiler grower supplying live birds to local retailers.",
     "A commercial broiler operation describing its placement cycle, how birds are sold, and the area it serves."),
@@ -100,6 +101,28 @@ const farms = [
     ["hatching-eggs"], "Small breeder flock offering hatching eggs by enquiry.",
     "A breeding farm for hatcheries and experienced growers who want to discuss hatching egg availability."),
 ];
+
+const serviceLocations = [
+  { state: "Bihar", city: "Patna", area: "Patna area" },
+  { state: "West Bengal", city: "Kolkata", area: "Kolkata area" },
+  { state: "Uttar Pradesh", city: "Lucknow", area: "Lucknow area" },
+  { state: "Jharkhand", city: "Ranchi", area: "Ranchi area" },
+  { state: "Bihar", city: "Gaya", area: "Gaya area" },
+  { state: "West Bengal", city: "Siliguri", area: "Siliguri area" },
+  { state: "Uttar Pradesh", city: "Kanpur", area: "Kanpur area" },
+  { state: "Jharkhand", city: "Jamshedpur", area: "Jamshedpur area" },
+  { state: "Bihar", city: "Bhagalpur", area: "Bhagalpur area" },
+  { state: "West Bengal", city: "Durgapur", area: "Durgapur area" },
+  { state: "Uttar Pradesh", city: "Varanasi", area: "Varanasi area" },
+  { state: "Jharkhand", city: "Dhanbad", area: "Dhanbad area" },
+];
+
+const locationIndex = (slug) => [...slug].reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 7) % serviceLocations.length;
+
+const farms = rawFarms.map((farm) => ({
+  ...farm,
+  ...serviceLocations[locationIndex(farm.slug)],
+}));
 
 export const farmTypes = ["Commercial", "Small-scale", "Family-run"];
 export default farms;

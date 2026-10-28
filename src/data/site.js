@@ -45,7 +45,6 @@ export const mainNav = [
       { label: "Report a listing", to: "/report-listing" },
     ],
   },
-  { label: "Contact", to: "/contact" },
 ];
 
 export default site;

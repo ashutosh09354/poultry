@@ -10,7 +10,6 @@ const Categories = lazy(() => import("./pages/Categories"));
 const Products = lazy(() => import("./pages/Products"));
 const Services = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
-const ListYourFarm = lazy(() => import("./pages/ListYourFarm"));
 const Resources = lazy(() => import("./pages/Resources"));
 const ArticleDetail = lazy(() => import("./pages/ArticleDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -35,38 +34,48 @@ function ScrollManager() {
 export default function App() {
   return (
     <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+function AppContent() {
+  const { pathname } = useLocation();
+  return (
+    <>
       <ScrollManager />
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <main id="main" className="flex-1" tabIndex={-1}>
-          <Suspense fallback={<div className="min-h-[60vh]" aria-busy="true" />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/farms" element={<Farms />} />
-              <Route path="/farms/:slug" element={<FarmDetail />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/list-your-farm" element={<ListYourFarm />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/resources/:slug" element={<ArticleDetail />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/faq" element={<Faq />} />
-              <Route path="/how-it-works" element={<HowItWorks />} />
-              <Route path="/privacy-policy" element={<Legal page="privacy" />} />
-              <Route path="/terms" element={<Legal page="terms" />} />
-              <Route path="/listing-guidelines" element={<Legal page="guidelines" />} />
-              <Route path="/report-listing" element={<ReportListing />} />
-              <Route path="/login" element={<Navigate to="/list-your-farm" replace />} />
-              <Route path="/signup" element={<Navigate to="/list-your-farm" replace />} />
-              <Route path="/404" element={<NotFound />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+          <div key={pathname} className="page-transition">
+            <Suspense fallback={<div className="min-h-[60vh]" aria-busy="true" />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/farms" element={<Farms />} />
+                <Route path="/farms/:slug" element={<FarmDetail />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/resources/:slug" element={<ArticleDetail />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/faq" element={<Faq />} />
+                <Route path="/how-it-works" element={<HowItWorks />} />
+                <Route path="/privacy-policy" element={<Legal page="privacy" />} />
+                <Route path="/terms" element={<Legal page="terms" />} />
+                <Route path="/listing-guidelines" element={<Legal page="guidelines" />} />
+                <Route path="/report-listing" element={<ReportListing />} />
+                <Route path="/login" element={<Navigate to="/contact" replace />} />
+                <Route path="/signup" element={<Navigate to="/contact" replace />} />
+                <Route path="/404" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </div>
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </>
   );
 }

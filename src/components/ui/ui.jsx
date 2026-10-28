@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Baby, BookOpen, Bird, ChevronRight, Circle, CircleAlert, CircleCheck, CircleDot, Dna, Drumstick, Egg, Handshake, Info, Megaphone, Search, Sprout, Warehouse } from "lucide-react";
+import { Button as ShadcnButton } from "./button";
+import { Input } from "./input";
+import { Label } from "./label";
+import { Select } from "./select";
+import { Textarea } from "./textarea";
 
 // Only icons referenced by name in the data files are bundled. Add new ones here.
 const ICONS = { Baby, BookOpen, Bird, Circle, CircleAlert, CircleCheck, CircleDot, Dna, Drumstick, Egg, Handshake, Info, Megaphone, Search, Sprout, Warehouse };
@@ -20,9 +25,32 @@ const tones = {
   sage: "bg-mist-100",
   forest: "bg-brand-900 text-mist-100",
 };
-export function Section({ tone = "ivory", className = "", children, id, labelledBy }) {
+export function Section({ tone = "ivory", className = "", children, id, labelledBy, reveal = true }) {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const content = section?.firstElementChild;
+    if (!reveal || !section || !content || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+
+    content.classList.add("scroll-reveal-pending");
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        content.classList.add("scroll-reveal-visible");
+        content.classList.remove("scroll-reveal-pending");
+        observer.disconnect();
+      }
+    }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+      content.classList.remove("scroll-reveal-pending", "scroll-reveal-visible");
+    };
+  }, [reveal]);
+
   return (
-    <section id={id} aria-labelledby={labelledBy} className={`${tones[tone]} py-9 sm:py-12 ${className}`}>
+    <section ref={sectionRef} id={id} aria-labelledby={labelledBy} className={`${tones[tone]} py-9 sm:py-12 ${className}`}>
       <Container>{children}</Container>
     </section>
   );
@@ -40,20 +68,12 @@ export function SectionHeading({ id, title, children, action, light = false }) {
   );
 }
 
-const btn = {
-  primary: "bg-brand-800 text-white hover:bg-brand-900 border-brand-800",
-  cta: "border-[#f4b942] bg-[#f4b942] text-brand-950 shadow-sm hover:border-[#e3a52e] hover:bg-[#e3a52e]",
-  outline: "bg-transparent text-brand-800 border-brand-800 hover:bg-brand-800 hover:text-white",
-  light: "bg-white text-brand-900 border-white hover:bg-mist-100",
-  ghostLight: "bg-transparent text-white border-white/70 hover:bg-white/10",
-};
-const sizes = { md: "px-5 py-2.5 text-[0.95rem]", sm: "px-3.5 py-2 text-sm", lg: "px-6 py-3 text-base" };
-
 export function Button({ to, href, variant = "primary", size = "md", className = "", children, ...rest }) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-[4px] border font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${btn[variant]} ${sizes[size]} ${className}`;
-  if (to) return <Link to={to} className={cls} {...rest}>{children}</Link>;
-  if (href) return <a href={href} className={cls} {...rest}>{children}</a>;
-  return <button type="button" className={cls} {...rest}>{children}</button>;
+  const resolvedVariant = variant === "primary" ? "default" : variant;
+  const resolvedSize = size === "md" ? "default" : size;
+  if (to) return <ShadcnButton asChild variant={resolvedVariant} size={resolvedSize} className={className}><Link to={to} {...rest}>{children}</Link></ShadcnButton>;
+  if (href) return <ShadcnButton asChild variant={resolvedVariant} size={resolvedSize} className={className}><a href={href} {...rest}>{children}</a></ShadcnButton>;
+  return <ShadcnButton type="button" variant={resolvedVariant} size={resolvedSize} className={className} {...rest}>{children}</ShadcnButton>;
 }
 
 const badgeTone = {
@@ -117,16 +137,13 @@ export function Notice({ tone = "info", title, children, className = "" }) {
 }
 
 /* Forms */
-const inputCls = (err) =>
-  `block w-full rounded-[4px] border bg-white px-3 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-soft/60 ${err ? "border-danger" : "border-[#b5c3d4]"}`;
-
 export function Field({ id, label, error, hint, required, plain, children }) {
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-semibold text-brand-900">
+      <Label htmlFor={id}>
         {label}{!plain && required && <span className="text-danger" aria-hidden="true"> *</span>}
         {!plain && !required && <span className="ml-1 font-normal text-ink-soft">(optional)</span>}
-      </label>
+      </Label>
       {children}
       {hint && !error && <p id={`${id}-hint`} className="mt-1 text-xs text-ink-soft">{hint}</p>}
       {error && <p id={`${id}-err`} className="mt-1 text-sm font-medium text-danger">{error}</p>}
@@ -141,28 +158,28 @@ const aria = (id, error, hint) => ({
 export function TextInput({ id, label, error, hint, required, ...rest }) {
   return (
     <Field id={id} label={label} error={error} hint={hint} required={required}>
-      <input className={inputCls(error)} {...aria(id, error, hint)} {...rest} />
+      <Input className={error ? "border-danger focus-visible:border-danger" : ""} {...aria(id, error, hint)} {...rest} />
     </Field>
   );
 }
 export function TextArea({ id, label, error, hint, required, rows = 5, ...rest }) {
   return (
     <Field id={id} label={label} error={error} hint={hint} required={required}>
-      <textarea rows={rows} className={inputCls(error)} {...aria(id, error, hint)} {...rest} />
+      <Textarea rows={rows} className={error ? "border-danger focus-visible:border-danger" : ""} {...aria(id, error, hint)} {...rest} />
     </Field>
   );
 }
 export function SelectInput({ id, label, error, hint, required, plain, options, placeholder, ...rest }) {
   return (
     <Field id={id} label={label} error={error} hint={hint} required={required} plain={plain}>
-      <select className={inputCls(error)} {...aria(id, error, hint)} {...rest}>
+      <Select className={error ? "border-danger focus-visible:border-danger" : ""} {...aria(id, error, hint)} {...rest}>
         {placeholder !== undefined && <option value="">{placeholder}</option>}
         {options.map((o) => {
           const v = typeof o === "string" ? o : o.value;
           const l = typeof o === "string" ? o : o.label;
           return <option key={v} value={v}>{l}</option>;
         })}
-      </select>
+      </Select>
     </Field>
   );
 }

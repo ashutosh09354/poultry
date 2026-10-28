@@ -58,8 +58,6 @@ export default function Navbar() {
     return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
   }, []);
 
-  const cta = "rounded-[4px] bg-[#2563EB] px-4 py-2.5 text-[0.92rem] font-bold text-white shadow-sm hover:bg-[#1D4ED8]";
-
   return (
     <header ref={navRef} className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2">Skip to content</a>
@@ -83,7 +81,12 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/list-your-farm" className={`${cta} hidden sm:inline-block`}>List Your Farm</Link>
+          <Link
+            to="/contact"
+            className="hidden rounded-[4px] bg-brand-700 px-3.5 py-2 text-[0.88rem] font-semibold text-white transition-colors hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 xl:inline-flex"
+          >
+            Contact us
+          </Link>
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-line bg-white text-brand-900 xl:hidden"
@@ -123,7 +126,12 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <Link to="/list-your-farm" className={`${cta} mt-4 block text-center`}>List Your Farm</Link>
+            <Link
+              to="/contact"
+              className="mt-4 flex w-full items-center justify-center rounded-[4px] bg-brand-700 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-800"
+            >
+              Contact us
+            </Link>
           </Container>
         </nav>
       )}
