@@ -98,3 +98,10 @@ export const sectionImages = {
   about: `${flock}?auto=format&fit=crop&w=1100&q=70`,
   onboarding: `${flock}?auto=format&fit=crop&w=1400&q=82`,
 };
+
+export const supplyNetworkImages = [
+  "https://images.unsplash.com/photo-1708677892304-e00e521d5afb?auto=format&fit=crop&w=1600&q=90",
+  `${eggs}?auto=format&fit=crop&w=900&q=80`,
+  "https://stmaaprodfwsite.blob.core.windows.net/assets/sites/1/2021/03/25032021-packing-egg-cartons-c-AdobeStock_408658574.jpg",
+  "https://www.appledorefarmeggs.co.uk/cdn/shop/files/Commercial-photographer-Devon-becky-craven-2674.jpg?v=1713301983&width=990",
+];

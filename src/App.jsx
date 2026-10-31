@@ -26,6 +26,7 @@ const BusinessListingPolicy = lazy(() => import("./pages/BusinessListingPolicy")
 const RefundCancellationPolicy = lazy(() => import("./pages/RefundCancellationPolicy"));
 const ContactGrievancePolicy = lazy(() => import("./pages/ContactGrievancePolicy"));
 const WebsitePolicyImplementation = lazy(() => import("./pages/WebsitePolicyImplementation"));
+const EggSupplyDetail = lazy(() => import("./pages/EggSupplyDetail"));
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -61,6 +62,7 @@ function AppContent() {
                 <Route path="/" element={<Home />} />
                 <Route path="/farms" element={<Farms />} />
                 <Route path="/farms/:slug" element={<FarmDetail />} />
+                <Route path="/egg-supply/:slug" element={<EggSupplyDetail />} />
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/services" element={<Services />} />

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowUpRight, CheckCircle2, Search, ClipboardList, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2, ClipboardList, MapPin, Search } from "lucide-react";
 import useSeo from "../hooks/useSeo";
 import farms from "../data/farms";
 import categories from "../data/categories";
 import products from "../data/products";
 import articles from "../data/articles";
 import statesData from "../data/states";
-import { heroImage, sectionImages, photosFor } from "../data/images";
+import eggSupplyLocations from "../data/eggSupplyNetwork";
+import { heroImage, sectionImages, supplyNetworkImages, photosFor } from "../data/images";
 import { Button, Container, Section, SectionHeading, Icon, Img } from "../components/ui/ui";
 import FarmCard from "../components/FarmCard";
 import ArticleCard from "../components/ArticleCard";
@@ -68,7 +69,6 @@ export default function Home() {
     [categories.length, "farm categories"],
   ];
   const byState = statesData.map(({ state }) => [state, farms.filter((f) => f.state === state).length]);
-
   return (
     <>
       {/* Hero */}
@@ -180,6 +180,44 @@ export default function Home() {
           ))}
         </ul>
       </Section>
+
+      {/* Egg supply network */}
+      <section className="overflow-hidden border-y border-[#eadfca] bg-white" aria-labelledby="supply-network-title">
+          <div className="relative overflow-hidden bg-white">
+            <div className="relative border-t border-[#eadfca] bg-[#fffaf1]">
+              <Container className="grid gap-5 py-6 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+                <div><h2 id="supply-network-title" className="text-3xl font-bold text-brand-900">Find egg suppliers</h2><p className="mt-3 text-sm leading-6 text-ink-soft">Suppliers may offer different egg grades, pack sizes, and supply schedules. Confirm every order detail directly with the listed business before proceeding.</p></div>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {["Egg type and grade required", "Quantity in trays or cartons", "Delivery location or pickup point", "Required supply date and frequency"].map((detail) => (
+                    <li key={detail} className="flex items-center gap-2 rounded-lg border border-[#eadfca] bg-white px-3 py-2.5 text-sm font-semibold text-brand-900"><CheckCircle2 size={17} className="shrink-0 text-ochre-700" aria-hidden="true" />{detail}</li>
+                  ))}
+                </ul>
+              </Container>
+            </div>
+
+            <div className="relative border-t border-[#eadfca] bg-[#fffdfa]">
+              <Container className="grid gap-4 py-5 sm:grid-cols-2 sm:py-7 lg:grid-cols-3">
+                {eggSupplyLocations.map(({ slug, city, state, image }) => (
+                  <Link key={slug} to={`/egg-supply/${slug}`} className="group overflow-hidden rounded-2xl border border-[#eadfca] bg-white shadow-[0_12px_24px_-20px_rgba(16,42,71,0.5)] transition-all hover:-translate-y-1 hover:border-ochre-500 hover:shadow-lg">
+                    <Img src={image} alt={`Egg supply at a farm near ${city}`} ratio="aspect-[16/10]" className="transition-transform duration-300 group-hover:scale-[1.03]" />
+                    <div className="flex items-center gap-3 p-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ochre-100 text-ochre-700"><MapPin size={20} aria-hidden="true" /></span>
+                      <span className="min-w-0 flex-1"><span className="block text-lg font-bold text-brand-900">{city}</span><span className="block text-sm text-ink-soft">{state}</span></span>
+                      <ArrowRight size={18} className="shrink-0 text-brand-700 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </div>
+                  </Link>
+                ))}
+              </Container>
+            </div>
+
+            <div className="relative bg-brand-900 text-white">
+              <Container className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
+                <div><h3 className="text-2xl font-bold !text-white">Looking for eggs in bulk?</h3><p className="mt-1 text-mist-200">Browse layer-farm listings or contact us to start your supplier search.</p></div>
+                <div className="flex shrink-0 flex-wrap gap-3"><Button to="/farms?category=layer" variant="cta">Explore layer farms <ArrowRight size={18} aria-hidden="true" /></Button><Button to="/contact" variant="ghostLight">Contact us</Button></div>
+              </Container>
+            </div>
+          </div>
+      </section>
 
       {/* Farmer onboarding */}
       <section className="relative isolate overflow-hidden bg-brand-900 text-white" aria-labelledby="farmer-title">
