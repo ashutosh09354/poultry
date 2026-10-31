@@ -1,7 +1,7 @@
 // Single place for business details. Values below came from the original project
 // and have NOT been confirmed: replace them with real details before launch.
 const site = {
-  name: "Poultry",
+  name: "polutrynext",
   tagline: "Find poultry farms, hatcheries and breeders across India",
   email: "info@poultry.com",
   phone: "", // add the real number, e.g. "+91 98765 43210"; the phone link is hidden while this is empty
@@ -39,7 +39,7 @@ export const mainNav = [
     label: "About Us",
     to: "/about",
     children: [
-      { label: "About Poultry", to: "/about" },
+      { label: "About polutrynext", to: "/about" },
       { label: "Services", to: "/services" },
       { label: "Report a listing", to: "/report-listing" },
     ],

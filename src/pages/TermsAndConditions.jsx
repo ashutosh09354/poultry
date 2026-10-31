@@ -9,7 +9,7 @@ const Section = ({ title, children }) => (
 );
 
 export default function TermsAndConditions() {
-  useSeo("Terms & Conditions", "Terms and conditions for using Poultry.");
+  useSeo("Terms & Conditions", "Terms and conditions for using polutrynext.");
 
   return (
     <>
@@ -22,16 +22,16 @@ export default function TermsAndConditions() {
           <p>Effective Date: October 30, 2026</p>
 
           <Section title="1. Introduction">
-            <p>Welcome to Poultry, an online platform designed to help users discover poultry farms and related businesses.</p>
+            <p>Welcome to polutrynext, an online platform designed to help users discover poultry farms and related businesses.</p>
             <p>These Terms &amp; Conditions govern your access to and use of the website at _____and its related services.</p>
             <p>By accessing or using the website, you agree to these Terms. If you do not agree, please discontinue using the website.</p>
-            <p>Website Name: Poultry<br />Legal Entity:<br />Registered Address:<br />Email:</p>
+            <p>Website Name: polutrynext<br />Legal Entity:<br />Registered Address:<br />Email:</p>
           </Section>
 
           <Section title="2. Nature of the Platform">
-            <p>Poultry operates as a directory platform that helps users find poultry farms and related businesses.</p>
+            <p>polutrynext operates as a directory platform that helps users find poultry farms and related businesses.</p>
             <p>The platform may display business names, addresses, contact information, descriptions, photographs, and other listing details.</p>
-            <p>Unless expressly stated otherwise, Poultry is not the owner, operator, manufacturer, or seller of the products or services offered by listed businesses. The platform does not guarantee any transaction between users and listed businesses.</p>
+            <p>Unless expressly stated otherwise, polutrynext is not the owner, operator, manufacturer, or seller of the products or services offered by listed businesses. The platform does not guarantee any transaction between users and listed businesses.</p>
           </Section>
 
           <Section title="3. User Eligibility">
@@ -41,7 +41,7 @@ export default function TermsAndConditions() {
           <Section title="4. Business Listings">
             <p>Business information may be submitted by business owners, representatives, or other permitted sources.</p>
             <p>We aim to maintain accurate information but do not guarantee that every listing is complete, current, verified, or available at all times.</p>
-            <p>Poultry may review, edit, suspend, or remove listings that appear inaccurate, misleading, unlawful, fraudulent, or inconsistent with these Terms.</p>
+            <p>polutrynext may review, edit, suspend, or remove listings that appear inaccurate, misleading, unlawful, fraudulent, or inconsistent with these Terms.</p>
           </Section>
 
           <Section title="5. User Responsibilities">
@@ -60,7 +60,7 @@ export default function TermsAndConditions() {
           <Section title="6. Independent Business Transactions">
             <p>Any purchase, sale, quotation, negotiation, farm visit, delivery arrangement, or other transaction between a user and a listed business is undertaken independently by those parties.</p>
             <p>Users should verify the business identity, product quality, pricing, licences where applicable, payment instructions, and delivery terms before proceeding.</p>
-            <p>Poultry is not responsible for the independent actions or representations of listed businesses, subject to applicable law.</p>
+            <p>polutrynext is not responsible for the independent actions or representations of listed businesses, subject to applicable law.</p>
           </Section>
 
           <Section title="7. Intellectual Property">
@@ -75,7 +75,7 @@ export default function TermsAndConditions() {
           </Section>
 
           <Section title="9. Limitation of Liability">
-            <p>To the extent permitted by applicable law, Poultry shall not be liable for indirect losses arising from independent dealings between users and listed businesses, inaccurate third-party information, or temporary website interruptions.</p>
+            <p>To the extent permitted by applicable law, polutrynext shall not be liable for indirect losses arising from independent dealings between users and listed businesses, inaccurate third-party information, or temporary website interruptions.</p>
             <p>Nothing in these Terms excludes liability that cannot legally be excluded or limits any non-waivable consumer rights.</p>
           </Section>
 

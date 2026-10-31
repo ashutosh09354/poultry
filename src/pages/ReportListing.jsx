@@ -9,7 +9,7 @@ const reasons = ["Incorrect information", "Misleading claims", "Not a real or ac
 const ORDER = ["listing", "reason", "details", "email"];
 
 export default function ReportListing() {
-  useSeo("Report a listing", "Tell Poultry about an incorrect or misleading farm listing.");
+  useSeo("Report a listing", "Tell polutrynext about an incorrect or misleading farm listing.");
   const [sp] = useSearchParams();
   const [f, setF] = useState({ listing: farms.some((x) => x.slug === sp.get("farm")) ? sp.get("farm") : "", reason: "", details: "", email: "" });
   const [errors, setErrors] = useState({});

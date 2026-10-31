@@ -10,15 +10,15 @@ const values = [
 ];
 
 export default function About() {
-  useSeo("About us", "Poultry is a poultry farm directory for India that helps buyers find farms and helps poultry businesses be found.");
+  useSeo("About us", "polutrynext is a poultry farm directory for India that helps buyers find farms and helps poultry businesses be found.");
   return (
     <>
-      <PageHeader title="About Poultry" intro="A poultry farm directory for India, built to make it easier for buyers and poultry businesses to find each other." crumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]} />
+      <PageHeader title="About polutrynext" intro="A poultry farm directory for India, built to make it easier for buyers and poultry businesses to find each other." crumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]} />
       <Container className="grid items-center gap-10 py-12 lg:grid-cols-2">
         <div className="prose-article">
           <h2 className="!mt-0">Why the platform exists</h2>
           <p>Poultry supply in India is spread across many farms, hatcheries and breeders, and it is hard for a buyer to know who is where and what they supply. Smaller farms in particular are often invisible outside their own district.</p>
-          <p>Poultry is intended to give each business a clear, consistent profile and give buyers a simple way to search and shortlist.</p>
+          <p>polutrynext is intended to give each business a clear, consistent profile and give buyers a simple way to search and shortlist.</p>
           <h2>Who it is for</h2>
           <ul>
             <li>Buyers such as retailers, restaurants, institutions and households looking for eggs or chicken</li>
@@ -39,7 +39,7 @@ export default function About() {
       <Section tone="white" labelledBy="now">
         <div className="max-w-3xl">
           <h2 id="now" className="text-3xl font-bold">Where things stand</h2>
-          <p className="mt-3 text-ink-soft">Poultry helps buyers discover poultry farms, hatcheries and breeders across India.</p>
+          <p className="mt-3 text-ink-soft">polutrynext helps buyers discover poultry farms, hatcheries and breeders across India.</p>
           <div className="mt-6 flex flex-wrap gap-3"><Button to="/how-it-works">How it works</Button><Button to="/contact" variant="outline">Contact us</Button></div>
         </div>
       </Section>

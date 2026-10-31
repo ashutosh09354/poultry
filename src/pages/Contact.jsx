@@ -19,7 +19,7 @@ const topics = [
 const ORDER = ["name", "email", "phone", "topic", "message"];
 
 export default function Contact() {
-  useSeo("Contact us", "Send an enquiry to Poultry.");
+  useSeo("Contact us", "Send an enquiry to polutrynext.");
   const [sp] = useSearchParams();
   const farm = farms.find((f) => f.slug === sp.get("farm"));
   const product = products.find((p) => p.id === sp.get("product"));
@@ -46,7 +46,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageHeader title="Let's start a conversation" intro="Ask a question, make an enquiry about a farm or product, or share an idea to make Poultry better." crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]}>
+      <PageHeader title="Let's start a conversation" intro="Ask a question, make an enquiry about a farm or product, or share an idea to make polutrynext better." crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]}>
         <div className="mt-7 flex flex-wrap gap-3 text-sm text-mist-100">
           <span className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1.5"><MessageCircle size={16} />Enquiries welcome</span>
           <span className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-1.5"><Sprout size={16} />For India's poultry community</span>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const BASE = "Poultry";
+const BASE = "polutrynext";
 
 export default function useSeo(title, description) {
   useEffect(() => {

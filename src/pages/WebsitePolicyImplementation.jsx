@@ -2,7 +2,7 @@ import useSeo from "../hooks/useSeo";
 import { Container, PageHeader } from "../components/ui/ui";
 
 export default function WebsitePolicyImplementation() {
-  useSeo("Website Policy Implementation", "Website Policy Implementation for Poultry.");
+  useSeo("Website Policy Implementation", "Website Policy Implementation for polutrynext.");
   return (
     <>
       <PageHeader title="8. Website Policy Implementation" crumbs={[{ label: "Home", to: "/" }, { label: "Website Policy Implementation" }]} />

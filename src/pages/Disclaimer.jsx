@@ -9,7 +9,7 @@ const Section = ({ title, children }) => (
 );
 
 export default function Disclaimer() {
-  useSeo("Disclaimer", "Disclaimer for Poultry.");
+  useSeo("Disclaimer", "Disclaimer for polutrynext.");
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Disclaimer() {
           <p>Effective Date: October 30, 2026</p>
 
           <Section title="General Information">
-            <p>Poultry provides a directory to help users discover poultry farms and related businesses.</p>
+            <p>polutrynext provides a directory to help users discover poultry farms and related businesses.</p>
             <p>Information published on the website is intended for general informational purposes.</p>
           </Section>
 
@@ -32,12 +32,12 @@ export default function Disclaimer() {
           </Section>
 
           <Section title="No Endorsement">
-            <p>The inclusion of a business in the directory does not automatically constitute an endorsement, certification, guarantee, or recommendation by Poultry.</p>
+            <p>The inclusion of a business in the directory does not automatically constitute an endorsement, certification, guarantee, or recommendation by polutrynext.</p>
             <p>Users should independently verify any business before entering into a transaction.</p>
           </Section>
 
           <Section title="Independent Transactions">
-            <p>Poultry is not a party to transactions conducted directly between users and listed businesses unless expressly stated otherwise for a specific service.</p>
+            <p>polutrynext is not a party to transactions conducted directly between users and listed businesses unless expressly stated otherwise for a specific service.</p>
             <p>Users and businesses are responsible for their own negotiations, payments, agreements, product quality, delivery arrangements, and applicable legal obligations.</p>
           </Section>
 

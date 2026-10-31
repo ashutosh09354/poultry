@@ -4,7 +4,7 @@ import { Container, PageHeader } from "../components/ui/ui";
 const Section = ({ title, children }) => <section><h2>{title}</h2>{children}</section>;
 
 export default function CookiePolicy() {
-  useSeo("Cookie Policy", "Cookie Policy for Poultry.");
+  useSeo("Cookie Policy", "Cookie Policy for polutrynext.");
   return (
     <>
       <PageHeader title="4. Cookie Policy" crumbs={[{ label: "Home", to: "/" }, { label: "Cookie Policy" }]} />
@@ -13,7 +13,7 @@ export default function CookiePolicy() {
           <p>Effective Date: October 30, 2026</p>
           <Section title="What Are Cookies?"><p>Cookies are small files stored on your device by websites. Similar technologies may be used to remember preferences, support website functions, or understand website usage.</p></Section>
           <Section title="Types of Cookies">
-            <p>Depending on the technologies actually implemented, Poultry may use:</p>
+            <p>Depending on the technologies actually implemented, polutrynext may use:</p>
             <p>Essential cookies: Required for security, navigation, or core website functions.</p>
             <p>Preference cookies: Used to remember settings or preferences.</p>
             <p>Analytics cookies: Used to understand traffic, page visits, and website performance.</p>

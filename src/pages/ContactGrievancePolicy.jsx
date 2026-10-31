@@ -4,7 +4,7 @@ import { Container, PageHeader } from "../components/ui/ui";
 const Section = ({ title, children }) => <section><h2>{title}</h2>{children}</section>;
 
 export default function ContactGrievancePolicy() {
-  useSeo("Contact Us and Grievance Redressal Policy", "Contact Us and Grievance Redressal Policy for Poultry.");
+  useSeo("Contact Us and Grievance Redressal Policy", "Contact Us and Grievance Redressal Policy for polutrynext.");
   return (
     <>
       <PageHeader title="7. Contact Us and Grievance Redressal Policy" crumbs={[{ label: "Home", to: "/" }, { label: "Contact Us and Grievance Redressal Policy" }]} />
@@ -13,7 +13,7 @@ export default function ContactGrievancePolicy() {
           <p>Effective Date: October 30, 2026</p>
           <Section title="Contact Information">
             <p>For website assistance, listing corrections, privacy requests, complaints, or other concerns, contact:</p>
-            <p>Website: Poultry<br />Legal Business Name: [Insert Registered Business Name]<br />Registered Address: [Insert Complete Registered Address]<br />Customer Support Email: [Insert Official Email Address]</p>
+            <p>Website: polutrynext<br />Legal Business Name: [Insert Registered Business Name]<br />Registered Address: [Insert Complete Registered Address]<br />Customer Support Email: [Insert Official Email Address]</p>
           </Section>
           <Section title="Grievance Redressal">
             <p>Users may submit a complaint concerning website functionality, inaccurate listings, suspected misuse, privacy concerns, or other platform-related issues.</p>

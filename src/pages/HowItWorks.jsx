@@ -17,7 +17,7 @@ const journeys = [
 ];
 
 export default function HowItWorks() {
-  useSeo("How it works", "How buyers and poultry farmers use Poultry: search, read profiles, enquire and prepare a listing.");
+  useSeo("How it works", "How buyers and poultry farmers use polutrynext: search, read profiles, enquire and prepare a listing.");
   return (
     <>
       <PageHeader title="How it works" intro="A simple path for buyers looking for a supplier and for farmers preparing a listing." crumbs={[{ label: "Home", to: "/" }, { label: "How it works" }]} />

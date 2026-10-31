@@ -4,7 +4,7 @@ import { Container, PageHeader } from "../components/ui/ui";
 const Section = ({ title, children }) => <section><h2>{title}</h2>{children}</section>;
 
 export default function RefundCancellationPolicy() {
-  useSeo("Refund and Cancellation Policy", "Refund and Cancellation Policy for Poultry.");
+  useSeo("Refund and Cancellation Policy", "Refund and Cancellation Policy for polutrynext.");
   return (
     <>
       <PageHeader title="6. Refund and Cancellation Policy" crumbs={[{ label: "Home", to: "/" }, { label: "Refund and Cancellation Policy" }]} />
@@ -12,11 +12,11 @@ export default function RefundCancellationPolicy() {
         <article className="prose-article policy-document">
           <p>Effective Date: October 30, 2026</p>
           <Section title="1. Scope">
-            <p>Poultry operates as a business directory under the assumed operating model. It does not itself sell poultry products or accept payment for third-party poultry orders through the directory.</p>
+            <p>polutrynext operates as a business directory under the assumed operating model. It does not itself sell poultry products or accept payment for third-party poultry orders through the directory.</p>
             <p>Accordingly, this Policy does not govern transactions conducted independently between customers and listed businesses. Those transactions are subject to the terms agreed between the relevant parties and applicable law.</p>
           </Section>
           <Section title="2. Paid Platform Services">
-            <p>If Poultry offers paid listing subscriptions, advertising, promotional placements, or other paid platform services, the refund and cancellation conditions applicable to each service will be disclosed before purchase.</p>
+            <p>If polutrynext offers paid listing subscriptions, advertising, promotional placements, or other paid platform services, the refund and cancellation conditions applicable to each service will be disclosed before purchase.</p>
             <p>The applicable terms will specify:</p>
             <ul><li>Whether cancellation is permitted.</li><li>Any applicable cancellation charges.</li><li>Whether a partial or full refund is available.</li><li>The process for requesting a refund.</li><li>The expected processing period.</li></ul>
           </Section>

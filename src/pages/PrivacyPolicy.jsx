@@ -9,7 +9,7 @@ const Section = ({ title, children }) => (
 );
 
 export default function PrivacyPolicy() {
-  useSeo("Privacy Policy", "Privacy Policy for Poultry.");
+  useSeo("Privacy Policy", "Privacy Policy for polutrynext.");
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
           <p>Effective Date: October 30, 2026</p>
 
           <Section title="1. Introduction">
-            <p>Poultry respects the privacy of visitors, users, and businesses listed on the platform.</p>
+            <p>polutrynext respects the privacy of visitors, users, and businesses listed on the platform.</p>
             <p>This Privacy Policy explains what information we may collect, how we use it, when we may share it, and the choices available to users.</p>
           </Section>
 

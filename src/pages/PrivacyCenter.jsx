@@ -3,7 +3,7 @@ import useSeo from "../hooks/useSeo";
 import { Container, PageHeader } from "../components/ui/ui";
 
 const legalPolicies = [
-  ["1. Terms & Conditions", "/terms", "Rules governing access to and use of Poultry."],
+  ["1. Terms & Conditions", "/terms", "Rules governing access to and use of polutrynext."],
   ["2. Privacy Policy", "/privacy-policy", "How information may be collected, used, and shared."],
   ["3. Disclaimer", "/disclaimer", "Important information about listings, external links, and independent transactions."],
   ["4. Cookie Policy", "/cookie-policy", "How cookies and similar technologies may be used."],
@@ -14,19 +14,19 @@ const legalPolicies = [
 ];
 
 export default function PrivacyCenter() {
-  useSeo("Privacy Center", "Learn how Poultry handles information, what choices you have, and how to contact us about privacy.");
+  useSeo("Privacy Center", "Learn how polutrynext handles information, what choices you have, and how to contact us about privacy.");
 
   return (
     <>
       <PageHeader
         title="Privacy Center"
-        intro="Access Poultry's legal policies in one place."
+        intro="Access polutrynext's legal policies in one place."
         crumbs={[{ label: "Home", to: "/" }, { label: "Privacy Center" }]}
       />
       <Container className="py-10 sm:py-14">
         <section aria-labelledby="legal-policies-heading">
           <h2 id="legal-policies-heading" className="text-2xl font-bold sm:text-3xl">Legal policies</h2>
-          <p className="mt-3 max-w-3xl text-ink-soft">Read the policies that apply to using Poultry and its platform services.</p>
+          <p className="mt-3 max-w-3xl text-ink-soft">Read the policies that apply to using polutrynext and its platform services.</p>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {legalPolicies.map(([title, to, description]) => (
               <Link key={to} to={to} className="group rounded-[6px] border border-line bg-white p-5 transition-colors hover:border-brand-600 hover:bg-mist-50">

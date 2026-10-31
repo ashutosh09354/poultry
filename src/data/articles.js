@@ -175,7 +175,7 @@ const articles = [
       { id: "ask", heading: "Questions buyers can ask", paragraphs: [
         "Because there is no single standard, it helps to ask clear questions before you buy.",
       ], bullets: ["Which breed or cross is this?", "How old are the birds at sale?", "Are birds sold live or dressed?", "How are the birds housed and fed?", "Can I visit the farm?"] },
-      { id: "farmers", heading: "For farmers listing on Poultry", paragraphs: [
+      { id: "farmers", heading: "For farmers listing on polutrynext", paragraphs: [
         "Describe your birds plainly: the breed or cross you raise, the age at which you sell them and the products you supply. Do not use terms such as organic or certified unless you can show that you hold the relevant certification.",
       ]},
     ],

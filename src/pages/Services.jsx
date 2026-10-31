@@ -10,10 +10,10 @@ const services = [
 const not = ["Selling or delivering poultry products", "Payments, escrow or order tracking", "Veterinary advice, diagnosis or treatment", "Inspecting or certifying farms", "Feed, equipment or financing"];
 
 export default function Services() {
-  useSeo("Services", "What Poultry provides: farm discovery, farmer visibility, buyer and farmer connections and a poultry Knowledge Hub.");
+  useSeo("Services", "What polutrynext provides: farm discovery, farmer visibility, buyer and farmer connections and a poultry Knowledge Hub.");
   return (
     <>
-      <PageHeader title="Services" intro="What Poultry offers today, and what it does not." crumbs={[{ label: "Home", to: "/" }, { label: "Services" }]} />
+      <PageHeader title="Services" intro="What polutrynext offers today, and what it does not." crumbs={[{ label: "Home", to: "/" }, { label: "Services" }]} />
       <Container className="py-10 sm:py-14">
         <ul className="grid gap-6 md:grid-cols-2">
           {services.map((s) => (
@@ -27,7 +27,7 @@ export default function Services() {
         </ul>
       </Container>
       <Section tone="sage" labelledBy="not-title">
-        <h2 id="not-title" className="text-3xl font-bold">What Poultry does not provide</h2>
+        <h2 id="not-title" className="text-3xl font-bold">What polutrynext does not provide</h2>
         <p className="mt-2 max-w-2xl text-ink-soft">To avoid confusion, these things are outside what the platform does.</p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {not.map((n) => <li key={n} className="rounded-[4px] border border-mist-300 bg-white px-4 py-3 text-sm font-medium">{n}</li>)}

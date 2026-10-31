@@ -38,7 +38,7 @@ export default function Footer() {
       </Container>
       <div className="border-t border-brand-800">
         <Container className="flex flex-col gap-3 py-5 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Poultry.</p>
+          <p>© {new Date().getFullYear()} polutrynext.</p>
           <ul className="flex flex-wrap gap-x-5 gap-y-1">
             <li><Link to="/privacy-center" className="hover:text-white hover:underline">Privacy Center</Link></li>
           </ul>

@@ -6,7 +6,7 @@ import { Container, Notice, PageHeader } from "../components/ui/ui";
 import ArticleCard from "../components/ArticleCard";
 
 export default function Resources() {
-  useSeo("Poultry Knowledge Hub", "General guides on poultry farm management, broiler and layer basics, biosecurity, hygiene and egg handling.");
+  useSeo("polutrynext Knowledge Hub", "General guides on poultry farm management, broiler and layer basics, biosecurity, hygiene and egg handling.");
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("All");
 
@@ -21,7 +21,7 @@ export default function Resources() {
 
   return (
     <>
-      <PageHeader title="Poultry Knowledge Hub" intro="Practical guides on running a poultry farm and on buying from one." crumbs={[{ label: "Home", to: "/" }, { label: "Resources" }]} />
+      <PageHeader title="polutrynext Knowledge Hub" intro="Practical guides on running a poultry farm and on buying from one." crumbs={[{ label: "Home", to: "/" }, { label: "Resources" }]} />
       <Container className="py-10 sm:py-12">
         <Notice tone="info" className="mb-8">These guides are general education, not veterinary or legal advice. Follow your breed supplier's management guide and speak to a qualified poultry veterinarian about bird health.</Notice>
 
