@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import useSeo from "../hooks/useSeo";
 import categories from "../data/categories";
 import farms from "../data/farms";
@@ -29,7 +28,6 @@ export default function Categories() {
             );
           })}
         </ul>
-        <p className="mt-8 text-sm text-ink-soft">Not sure which category fits your farm? <Link to="/listing-guidelines" className="font-semibold text-brand-700 underline">Read the listing guidelines</Link>.</p>
       </Container>
     </>
   );

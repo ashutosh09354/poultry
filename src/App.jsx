@@ -17,7 +17,15 @@ const Faq = lazy(() => import("./pages/Faq"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const ReportListing = lazy(() => import("./pages/ReportListing"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Legal = lazy(() => import("./pages/Legal"));
+const PrivacyCenter = lazy(() => import("./pages/PrivacyCenter"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const BusinessListingPolicy = lazy(() => import("./pages/BusinessListingPolicy"));
+const RefundCancellationPolicy = lazy(() => import("./pages/RefundCancellationPolicy"));
+const ContactGrievancePolicy = lazy(() => import("./pages/ContactGrievancePolicy"));
+const WebsitePolicyImplementation = lazy(() => import("./pages/WebsitePolicyImplementation"));
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -62,9 +70,15 @@ function AppContent() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/how-it-works" element={<HowItWorks />} />
-                <Route path="/privacy-policy" element={<Legal page="privacy" />} />
-                <Route path="/terms" element={<Legal page="terms" />} />
-                <Route path="/listing-guidelines" element={<Legal page="guidelines" />} />
+                <Route path="/privacy-center" element={<PrivacyCenter />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route path="/business-listing-policy" element={<BusinessListingPolicy />} />
+                <Route path="/refund-cancellation-policy" element={<RefundCancellationPolicy />} />
+                <Route path="/contact-grievance-policy" element={<ContactGrievancePolicy />} />
+                <Route path="/website-policy-implementation" element={<WebsitePolicyImplementation />} />
+                <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/report-listing" element={<ReportListing />} />
                 <Route path="/login" element={<Navigate to="/contact" replace />} />
                 <Route path="/signup" element={<Navigate to="/contact" replace />} />

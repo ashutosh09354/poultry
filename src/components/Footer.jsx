@@ -25,7 +25,7 @@ export default function Footer() {
           </p>
         </div>
         {col("Explore", [["Explore farms", "/farms"], ["Poultry categories", "/categories"], ["Products", "/products"], ["Services", "/services"]])}
-        {col("Learn", [["Knowledge Hub", "/resources"], ["How it works", "/how-it-works"], ["FAQ", "/faq"], ["Listing guidelines", "/listing-guidelines"]])}
+        {col("Learn", [["Knowledge Hub", "/resources"], ["How it works", "/how-it-works"], ["FAQ", "/faq"]])}
         {col("Company", [["About", "/about"], ["Contact", "/contact"], ["Report a listing", "/report-listing"]])}
         <div>
           <h2 className="!font-sans text-sm font-bold !text-white">Contact</h2>
@@ -40,9 +40,7 @@ export default function Footer() {
         <Container className="flex flex-col gap-3 py-5 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Poultry.</p>
           <ul className="flex flex-wrap gap-x-5 gap-y-1">
-            <li><Link to="/privacy-policy" className="hover:text-white hover:underline">Privacy policy</Link></li>
-            <li><Link to="/terms" className="hover:text-white hover:underline">Terms of use</Link></li>
-            <li><Link to="/listing-guidelines" className="hover:text-white hover:underline">Listing guidelines</Link></li>
+            <li><Link to="/privacy-center" className="hover:text-white hover:underline">Privacy Center</Link></li>
           </ul>
         </Container>
       </div>

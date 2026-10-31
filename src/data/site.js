@@ -33,7 +33,6 @@ export const mainNav = [
       { label: "Knowledge Hub", to: "/resources", hint: "Guides on farm management" },
       { label: "How it works", to: "/how-it-works" },
       { label: "FAQ", to: "/faq" },
-      { label: "Listing guidelines", to: "/listing-guidelines" },
     ],
   },
   {

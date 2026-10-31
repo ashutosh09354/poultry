@@ -196,7 +196,6 @@ export default function Home() {
             </ul>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button to="/contact" variant="cta">Contact us <ArrowUpRight size={18} aria-hidden="true" /></Button>
-              <Button to="/listing-guidelines" variant="ghostLight">Read the guidelines</Button>
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-xl lg:mx-0">
